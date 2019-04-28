@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bilibili.main.dao.ShoppingCartMapper" >
+  <resultMap id="BaseResultMap" type="com.bilibili.main.model.ShoppingCart" >
+    <result column="cart_id" property="cartId" jdbcType="VARCHAR" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="shopping_id" property="shoppingId" jdbcType="VARCHAR" />
+    <result column="shoppping_name" property="shopppingName" jdbcType="VARCHAR" />
+    <result column="shopping_image" property="shoppingImage" jdbcType="VARCHAR" />
+    <result column="shopping_price" property="shoppingPrice" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    cart_id, user_name, shopping_id, shoppping_name, shopping_image, shopping_price
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.bilibili.main.model.ShoppingCartExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from shopping_cart
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.bilibili.main.model.ShoppingCartExample" >
+    delete from shopping_cart
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.bilibili.main.model.ShoppingCart" >
+    insert into shopping_cart (cart_id, user_name, shopping_id, 
+      shoppping_name, shopping_image, shopping_price
+      )
+    values (#{cartId,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{shoppingId,jdbcType=VARCHAR}, 
+      #{shopppingName,jdbcType=VARCHAR}, #{shoppingImage,jdbcType=VARCHAR}, #{shoppingPrice,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bilibili.main.model.ShoppingCart" >
+    insert into shopping_cart
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cartId != null" >
+        cart_id,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="shoppingId != null" >
+        shopping_id,
+      </if>
+      <if test="shopppingName != null" >
+        shoppping_name,
+      </if>
+      <if test="shoppingImage != null" >
+        shopping_image,
+      </if>
+      <if test="shoppingPrice != null" >
+        shopping_price,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cartId != null" >
+        #{cartId,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="shoppingId != null" >
+        #{shoppingId,jdbcType=VARCHAR},
+      </if>
+      <if test="shopppingName != null" >
+        #{shopppingName,jdbcType=VARCHAR},
+      </if>
+      <if test="shoppingImage != null" >
+        #{shoppingImage,jdbcType=VARCHAR},
+      </if>
+      <if test="shoppingPrice != null" >
+        #{shoppingPrice,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.bilibili.main.model.ShoppingCartExample" resultType="java.lang.Integer" >
+    select count(*) from shopping_cart
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update shopping_cart
+    <set >
+      <if test="record.cartId != null" >
+        cart_id = #{record.cartId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userName != null" >
+        user_name = #{record.userName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shoppingId != null" >
+        shopping_id = #{record.shoppingId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shopppingName != null" >
+        shoppping_name = #{record.shopppingName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shoppingImage != null" >
+        shopping_image = #{record.shoppingImage,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shoppingPrice != null" >
+        shopping_price = #{record.shoppingPrice,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update shopping_cart
+    set cart_id = #{record.cartId,jdbcType=VARCHAR},
+      user_name = #{record.userName,jdbcType=VARCHAR},
+      shopping_id = #{record.shoppingId,jdbcType=VARCHAR},
+      shoppping_name = #{record.shopppingName,jdbcType=VARCHAR},
+      shopping_image = #{record.shoppingImage,jdbcType=VARCHAR},
+      shopping_price = #{record.shoppingPrice,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

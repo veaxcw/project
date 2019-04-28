@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="main.dao.ResearchDAO">
+
+    <select id="findByUserCode" resultType="main.model.Research">
+        select * from research WHERE usercode = #{userCode}
+    </select>
+
+    <select id="findByRid" resultType="main.model.Research">
+        select * from  research where rid = #{rid}
+    </select>
+
+    <select id="findByCondition" resultType="main.model.Research">
+        select * from research where rid = #{rid}
+    </select>
+
+    <update id="updateResearch"  parameterType="main.model.Research">
+        update research set rname = #{research.rname},rpath = #{research.rpath},
+        funds = #{research.funds},summary = #{research.summary},publishdate = #{research.publishdate},
+        publishreader = #{research.publishreader},uploaddate = #{research.uploaddate} where rid = #{research.rid}
+    </update>
+
+    <delete id="deleteResearch" parameterType="INTEGER">
+        delete from research where  rid = #{rid}
+    </delete>
+
+    <insert id="saveResearch" parameterType="main.model.Research">
+        insert into research(rname, rpath, publishdate, publishreader, uploaddate, summary, funds, usercode) values(#{research.rname},#{research.rpath},
+       #{research.publishdate},#{research.publishreader},#{research.uploaddate},
+       #{research.summary}, #{research.funds},#{research.usercode}
+         )
+    </insert>
+
+</mapper>

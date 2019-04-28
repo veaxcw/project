@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/bilibiliCopy/bilibiliCopy.iml" filepath="$PROJECT_DIR$/bilibiliCopy/bilibiliCopy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mineClearance/mineClearance.iml" filepath="$PROJECT_DIR$/mineClearance/mineClearance.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/project.iml" filepath="$PROJECT_DIR$/.idea/project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shoppingManagementSytem/shoppingManagementSytem.iml" filepath="$PROJECT_DIR$/shoppingManagementSytem/shoppingManagementSytem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/teacherInfoAnnuaFillingSystem/teacherInfoAnnuaFillingSystem.iml" filepath="$PROJECT_DIR$/teacherInfoAnnuaFillingSystem/teacherInfoAnnuaFillingSystem.iml" />
+    </modules>
+  </component>
+</project>
