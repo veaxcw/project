@@ -1,4 +1,4 @@
-package main.util;
+package com.chengw.teacherInfoAnnualFillingSystem.util;
 
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.beanutils.ConvertUtils;

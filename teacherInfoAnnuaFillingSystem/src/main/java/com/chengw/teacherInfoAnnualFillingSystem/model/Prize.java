@@ -1,4 +1,4 @@
-package demoProject.main.model;
+package com.chengw.teacherInfoAnnualFillingSystem.model;
 
 public class Prize {
     private int pid;

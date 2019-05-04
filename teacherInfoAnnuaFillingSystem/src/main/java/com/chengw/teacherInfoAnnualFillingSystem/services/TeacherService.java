@@ -1,6 +1,6 @@
-package main.services;
+package com.chengw.teacherInfoAnnualFillingSystem.services;
 
-import main.model.Teacher;
+import com.chengw.teacherInfoAnnualFillingSystem.model.Teacher;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

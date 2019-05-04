@@ -1,7 +1,8 @@
-package main.controller;
+package com.chengw.teacherInfoAnnualFillingSystem.controller;
 
-import main.model.Teacher;
-import main.services.TeacherService;
+
+import com.chengw.teacherInfoAnnualFillingSystem.model.Teacher;
+import com.chengw.teacherInfoAnnualFillingSystem.services.TeacherService;
 import main.util.VerifyCodeUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

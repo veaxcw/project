@@ -1,7 +1,6 @@
-package main.services;
+package com.chengw.teacherInfoAnnualFillingSystem.services;
 
-import main.model.Research;
-import main.model.Researchresult;
+import com.chengw.teacherInfoAnnualFillingSystem.model.Researchresult;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

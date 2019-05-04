@@ -1,6 +1,8 @@
-package main.Filter;
+package com.chengw.teacherInfoAnnualFillingSystem.Filter;
 
-import main.model.Teacher;
+
+
+import com.chengw.teacherInfoAnnualFillingSystem.model.Teacher;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;

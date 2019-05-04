@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bilibili.main.dao.ForumMapper" >
+  <resultMap id="BaseResultMap" type="com.bilibili.main.model.Forum" >
+    <result column="forum_id" property="forumId" jdbcType="VARCHAR" />
+    <result column="forum_user_name" property="forumUserName" jdbcType="VARCHAR" />
+    <result column="forum_time" property="forumTime" jdbcType="VARCHAR" />
+    <result column="forum_list" property="forumList" jdbcType="VARCHAR" />
+    <result column="forum_amount" property="forumAmount" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.bilibili.main.model.ForumWithBLOBs" extends="BaseResultMap" >
+    <result column="forum_bt" property="forumBt" jdbcType="LONGVARCHAR" />
+    <result column="forum_message" property="forumMessage" jdbcType="LONGVARCHAR" />
+    <result column="forum_hand" property="forumHand" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    forum_id, forum_user_name, forum_time, forum_list, forum_amount
+  </sql>
+  <sql id="Blob_Column_List" >
+    forum_bt, forum_message, forum_hand
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.bilibili.main.model.ForumExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from forum
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.bilibili.main.model.ForumExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from forum
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.bilibili.main.model.ForumExample" >
+    delete from forum
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.bilibili.main.model.ForumWithBLOBs" >
+    insert into forum (forum_id, forum_user_name, forum_time, 
+      forum_list, forum_amount, forum_bt, 
+      forum_message, forum_hand)
+    values (#{forumId,jdbcType=VARCHAR}, #{forumUserName,jdbcType=VARCHAR}, #{forumTime,jdbcType=VARCHAR}, 
+      #{forumList,jdbcType=VARCHAR}, #{forumAmount,jdbcType=VARCHAR}, #{forumBt,jdbcType=LONGVARCHAR}, 
+      #{forumMessage,jdbcType=LONGVARCHAR}, #{forumHand,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bilibili.main.model.ForumWithBLOBs" >
+    insert into forum
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="forumId != null" >
+        forum_id,
+      </if>
+      <if test="forumUserName != null" >
+        forum_user_name,
+      </if>
+      <if test="forumTime != null" >
+        forum_time,
+      </if>
+      <if test="forumList != null" >
+        forum_list,
+      </if>
+      <if test="forumAmount != null" >
+        forum_amount,
+      </if>
+      <if test="forumBt != null" >
+        forum_bt,
+      </if>
+      <if test="forumMessage != null" >
+        forum_message,
+      </if>
+      <if test="forumHand != null" >
+        forum_hand,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="forumId != null" >
+        #{forumId,jdbcType=VARCHAR},
+      </if>
+      <if test="forumUserName != null" >
+        #{forumUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="forumTime != null" >
+        #{forumTime,jdbcType=VARCHAR},
+      </if>
+      <if test="forumList != null" >
+        #{forumList,jdbcType=VARCHAR},
+      </if>
+      <if test="forumAmount != null" >
+        #{forumAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="forumBt != null" >
+        #{forumBt,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="forumMessage != null" >
+        #{forumMessage,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="forumHand != null" >
+        #{forumHand,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.bilibili.main.model.ForumExample" resultType="java.lang.Integer" >
+    select count(*) from forum
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update forum
+    <set >
+      <if test="record.forumId != null" >
+        forum_id = #{record.forumId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.forumUserName != null" >
+        forum_user_name = #{record.forumUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.forumTime != null" >
+        forum_time = #{record.forumTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.forumList != null" >
+        forum_list = #{record.forumList,jdbcType=VARCHAR},
+      </if>
+      <if test="record.forumAmount != null" >
+        forum_amount = #{record.forumAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.forumBt != null" >
+        forum_bt = #{record.forumBt,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.forumMessage != null" >
+        forum_message = #{record.forumMessage,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.forumHand != null" >
+        forum_hand = #{record.forumHand,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update forum
+    set forum_id = #{record.forumId,jdbcType=VARCHAR},
+      forum_user_name = #{record.forumUserName,jdbcType=VARCHAR},
+      forum_time = #{record.forumTime,jdbcType=VARCHAR},
+      forum_list = #{record.forumList,jdbcType=VARCHAR},
+      forum_amount = #{record.forumAmount,jdbcType=VARCHAR},
+      forum_bt = #{record.forumBt,jdbcType=LONGVARCHAR},
+      forum_message = #{record.forumMessage,jdbcType=LONGVARCHAR},
+      forum_hand = #{record.forumHand,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update forum
+    set forum_id = #{record.forumId,jdbcType=VARCHAR},
+      forum_user_name = #{record.forumUserName,jdbcType=VARCHAR},
+      forum_time = #{record.forumTime,jdbcType=VARCHAR},
+      forum_list = #{record.forumList,jdbcType=VARCHAR},
+      forum_amount = #{record.forumAmount,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

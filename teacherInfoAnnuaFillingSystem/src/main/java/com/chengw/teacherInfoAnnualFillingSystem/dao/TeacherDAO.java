@@ -1,6 +1,6 @@
-package main.dao;
+package com.chengw.teacherInfoAnnualFillingSystem.dao;
 
-import main.model.Teacher;
+import com.chengw.teacherInfoAnnualFillingSystem.model.Teacher;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 

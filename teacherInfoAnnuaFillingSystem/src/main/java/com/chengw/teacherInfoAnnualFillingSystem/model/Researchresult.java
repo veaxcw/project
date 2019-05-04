@@ -1,4 +1,4 @@
-package main.model;
+package com.chengw.teacherInfoAnnualFillingSystem.model;
 
 public class Researchresult extends Research {
     private int rrid;

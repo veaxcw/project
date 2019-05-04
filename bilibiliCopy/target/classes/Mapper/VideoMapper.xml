@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bilibili.main.dao.VideoMapper" >
+  <resultMap id="BaseResultMap" type="com.bilibili.main.model.Video" >
+    <result column="video_id" property="videoId" jdbcType="VARCHAR" />
+    <result column="video_name" property="videoName" jdbcType="VARCHAR" />
+    <result column="video_watch_time" property="videoWatchTime" jdbcType="VARCHAR" />
+    <result column="videoTime" property="videotime" jdbcType="VARCHAR" />
+    <result column="video_status" property="videoStatus" jdbcType="VARCHAR" />
+    <result column="video_category" property="videoCategory" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.bilibili.main.model.VideoWithBLOBs" extends="BaseResultMap" >
+    <result column="video_image" property="videoImage" jdbcType="LONGVARCHAR" />
+    <result column="vedio_address" property="vedioAddress" jdbcType="LONGVARCHAR" />
+    <result column="video_collection" property="videoCollection" jdbcType="LONGVARCHAR" />
+    <result column="video_leaving" property="videoLeaving" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    video_id, video_name, video_watch_time, videoTime, video_status, video_category
+  </sql>
+  <sql id="Blob_Column_List" >
+    video_image, vedio_address, video_collection, video_leaving
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.bilibili.main.model.VideoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from video
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.bilibili.main.model.VideoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from video
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.bilibili.main.model.VideoExample" >
+    delete from video
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.bilibili.main.model.VideoWithBLOBs" >
+    insert into video (video_id, video_name, video_watch_time, 
+      videoTime, video_status, video_category, 
+      video_image, vedio_address, video_collection, 
+      video_leaving)
+    values (#{videoId,jdbcType=VARCHAR}, #{videoName,jdbcType=VARCHAR}, #{videoWatchTime,jdbcType=VARCHAR}, 
+      #{videotime,jdbcType=VARCHAR}, #{videoStatus,jdbcType=VARCHAR}, #{videoCategory,jdbcType=VARCHAR}, 
+      #{videoImage,jdbcType=LONGVARCHAR}, #{vedioAddress,jdbcType=LONGVARCHAR}, #{videoCollection,jdbcType=LONGVARCHAR}, 
+      #{videoLeaving,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bilibili.main.model.VideoWithBLOBs" >
+    insert into video
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="videoId != null" >
+        video_id,
+      </if>
+      <if test="videoName != null" >
+        video_name,
+      </if>
+      <if test="videoWatchTime != null" >
+        video_watch_time,
+      </if>
+      <if test="videotime != null" >
+        videoTime,
+      </if>
+      <if test="videoStatus != null" >
+        video_status,
+      </if>
+      <if test="videoCategory != null" >
+        video_category,
+      </if>
+      <if test="videoImage != null" >
+        video_image,
+      </if>
+      <if test="vedioAddress != null" >
+        vedio_address,
+      </if>
+      <if test="videoCollection != null" >
+        video_collection,
+      </if>
+      <if test="videoLeaving != null" >
+        video_leaving,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="videoId != null" >
+        #{videoId,jdbcType=VARCHAR},
+      </if>
+      <if test="videoName != null" >
+        #{videoName,jdbcType=VARCHAR},
+      </if>
+      <if test="videoWatchTime != null" >
+        #{videoWatchTime,jdbcType=VARCHAR},
+      </if>
+      <if test="videotime != null" >
+        #{videotime,jdbcType=VARCHAR},
+      </if>
+      <if test="videoStatus != null" >
+        #{videoStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="videoCategory != null" >
+        #{videoCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="videoImage != null" >
+        #{videoImage,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="vedioAddress != null" >
+        #{vedioAddress,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="videoCollection != null" >
+        #{videoCollection,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="videoLeaving != null" >
+        #{videoLeaving,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.bilibili.main.model.VideoExample" resultType="java.lang.Integer" >
+    select count(*) from video
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update video
+    <set >
+      <if test="record.videoId != null" >
+        video_id = #{record.videoId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.videoName != null" >
+        video_name = #{record.videoName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.videoWatchTime != null" >
+        video_watch_time = #{record.videoWatchTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.videotime != null" >
+        videoTime = #{record.videotime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.videoStatus != null" >
+        video_status = #{record.videoStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.videoCategory != null" >
+        video_category = #{record.videoCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="record.videoImage != null" >
+        video_image = #{record.videoImage,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.vedioAddress != null" >
+        vedio_address = #{record.vedioAddress,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.videoCollection != null" >
+        video_collection = #{record.videoCollection,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.videoLeaving != null" >
+        video_leaving = #{record.videoLeaving,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update video
+    set video_id = #{record.videoId,jdbcType=VARCHAR},
+      video_name = #{record.videoName,jdbcType=VARCHAR},
+      video_watch_time = #{record.videoWatchTime,jdbcType=VARCHAR},
+      videoTime = #{record.videotime,jdbcType=VARCHAR},
+      video_status = #{record.videoStatus,jdbcType=VARCHAR},
+      video_category = #{record.videoCategory,jdbcType=VARCHAR},
+      video_image = #{record.videoImage,jdbcType=LONGVARCHAR},
+      vedio_address = #{record.vedioAddress,jdbcType=LONGVARCHAR},
+      video_collection = #{record.videoCollection,jdbcType=LONGVARCHAR},
+      video_leaving = #{record.videoLeaving,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update video
+    set video_id = #{record.videoId,jdbcType=VARCHAR},
+      video_name = #{record.videoName,jdbcType=VARCHAR},
+      video_watch_time = #{record.videoWatchTime,jdbcType=VARCHAR},
+      videoTime = #{record.videotime,jdbcType=VARCHAR},
+      video_status = #{record.videoStatus,jdbcType=VARCHAR},
+      video_category = #{record.videoCategory,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

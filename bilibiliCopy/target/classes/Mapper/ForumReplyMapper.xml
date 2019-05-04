@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bilibili.main.dao.ForumReplyMapper" >
+  <resultMap id="BaseResultMap" type="com.bilibili.main.model.ForumReply" >
+    <result column="reply_id" property="replyId" jdbcType="VARCHAR" />
+    <result column="reply_time" property="replyTime" jdbcType="TIMESTAMP" />
+    <result column="reply_hand" property="replyHand" jdbcType="VARCHAR" />
+    <result column="reply_post_id" property="replyPostId" jdbcType="VARCHAR" />
+    <result column="reply_name" property="replyName" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.bilibili.main.model.ForumReply" extends="BaseResultMap" >
+    <result column="reply_content" property="replyContent" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    reply_id, reply_time, reply_hand, reply_post_id, reply_name
+  </sql>
+  <sql id="Blob_Column_List" >
+    reply_content
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.bilibili.main.model.ForumReplyExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from forum_reply
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.bilibili.main.model.ForumReplyExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from forum_reply
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.bilibili.main.model.ForumReplyExample" >
+    delete from forum_reply
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.bilibili.main.model.ForumReply" >
+    insert into forum_reply (reply_id, reply_time, reply_hand, 
+      reply_post_id, reply_name, reply_content
+      )
+    values (#{replyId,jdbcType=VARCHAR}, #{replyTime,jdbcType=TIMESTAMP}, #{replyHand,jdbcType=VARCHAR}, 
+      #{replyPostId,jdbcType=VARCHAR}, #{replyName,jdbcType=VARCHAR}, #{replyContent,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bilibili.main.model.ForumReply" >
+    insert into forum_reply
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="replyId != null" >
+        reply_id,
+      </if>
+      <if test="replyTime != null" >
+        reply_time,
+      </if>
+      <if test="replyHand != null" >
+        reply_hand,
+      </if>
+      <if test="replyPostId != null" >
+        reply_post_id,
+      </if>
+      <if test="replyName != null" >
+        reply_name,
+      </if>
+      <if test="replyContent != null" >
+        reply_content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="replyId != null" >
+        #{replyId,jdbcType=VARCHAR},
+      </if>
+      <if test="replyTime != null" >
+        #{replyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="replyHand != null" >
+        #{replyHand,jdbcType=VARCHAR},
+      </if>
+      <if test="replyPostId != null" >
+        #{replyPostId,jdbcType=VARCHAR},
+      </if>
+      <if test="replyName != null" >
+        #{replyName,jdbcType=VARCHAR},
+      </if>
+      <if test="replyContent != null" >
+        #{replyContent,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.bilibili.main.model.ForumReplyExample" resultType="java.lang.Integer" >
+    select count(*) from forum_reply
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update forum_reply
+    <set >
+      <if test="record.replyId != null" >
+        reply_id = #{record.replyId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.replyTime != null" >
+        reply_time = #{record.replyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.replyHand != null" >
+        reply_hand = #{record.replyHand,jdbcType=VARCHAR},
+      </if>
+      <if test="record.replyPostId != null" >
+        reply_post_id = #{record.replyPostId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.replyName != null" >
+        reply_name = #{record.replyName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.replyContent != null" >
+        reply_content = #{record.replyContent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update forum_reply
+    set reply_id = #{record.replyId,jdbcType=VARCHAR},
+      reply_time = #{record.replyTime,jdbcType=TIMESTAMP},
+      reply_hand = #{record.replyHand,jdbcType=VARCHAR},
+      reply_post_id = #{record.replyPostId,jdbcType=VARCHAR},
+      reply_name = #{record.replyName,jdbcType=VARCHAR},
+      reply_content = #{record.replyContent,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update forum_reply
+    set reply_id = #{record.replyId,jdbcType=VARCHAR},
+      reply_time = #{record.replyTime,jdbcType=TIMESTAMP},
+      reply_hand = #{record.replyHand,jdbcType=VARCHAR},
+      reply_post_id = #{record.replyPostId,jdbcType=VARCHAR},
+      reply_name = #{record.replyName,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

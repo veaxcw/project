@@ -1,8 +1,9 @@
-package main.controller;
+package com.chengw.teacherInfoAnnualFillingSystem.controller;
 
-import main.model.Research;
-import main.model.Teacher;
-import main.services.ResearchService;
+
+import com.chengw.teacherInfoAnnualFillingSystem.model.Research;
+import com.chengw.teacherInfoAnnualFillingSystem.model.Teacher;
+import com.chengw.teacherInfoAnnualFillingSystem.services.ResearchService;
 import main.util.CommonUtils;
 
 import org.springframework.stereotype.Controller;

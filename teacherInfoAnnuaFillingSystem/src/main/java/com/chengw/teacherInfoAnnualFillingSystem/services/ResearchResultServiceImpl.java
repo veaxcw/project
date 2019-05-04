@@ -1,7 +1,7 @@
-package main.services;
+package com.chengw.teacherInfoAnnualFillingSystem.services;
 
-import main.dao.ResearchResultDAO;
-import main.model.Researchresult;
+import com.chengw.teacherInfoAnnualFillingSystem.dao.ResearchResultDAO;
+import com.chengw.teacherInfoAnnualFillingSystem.model.Researchresult;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

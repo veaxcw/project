@@ -1,10 +1,11 @@
-package main.services;
+package com.chengw.teacherInfoAnnualFillingSystem.services;
 
-import main.dao.ResearchDAO;
-import main.model.Research;
+
+import com.chengw.teacherInfoAnnualFillingSystem.model.Research;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+
 
 public interface ResearchService {
     List<Research> findByUserCode(@Param("userCode") String userCode );
