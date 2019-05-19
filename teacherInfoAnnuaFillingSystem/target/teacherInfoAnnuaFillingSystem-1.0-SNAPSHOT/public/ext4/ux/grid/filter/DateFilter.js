@@ -1,5 +1,5 @@
 /**
- * Filter by a configurable Ext.picker.DatePicker menu
+ * filter by a configurable Ext.picker.DatePicker menu
  *
  * Example Usage:
  *

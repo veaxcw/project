@@ -1,5 +1,5 @@
 /**
- * Filter by a configurable Ext.form.field.Text
+ * filter by a configurable Ext.form.field.Text
  * <p><b><u>Example Usage:</u></b></p>
  * <pre><code>
 var filters = Ext.create('Ext.ux.grid.GridFilters', {
@@ -29,7 +29,7 @@ Ext.define('Ext.ux.grid.filter.StringFilter', {
      */
     iconCls : 'ux-gridfilter-text-icon',
 
-    emptyText: 'Enter Filter Text...',
+    emptyText: 'Enter filter Text...',
     selectOnFocus: true,
     width: 125,
 

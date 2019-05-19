@@ -9,9 +9,11 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.File;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.lang.reflect.InvocationTargetException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -86,4 +88,49 @@ public class CommonUtils {
 
         return null;
     }
+
+    public static String getCode(String httpUrl){
+        String code = "";
+        try {
+            InputStream in;
+            URL url =  new URL(httpUrl);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.connect();
+            in = connection.getInputStream();
+            InputStreamReader inputStreamReader =  new InputStreamReader(in);
+            BufferedReader reader = new BufferedReader(inputStreamReader);
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return code;
+    }
+
+    public static synchronized void writeHtml(String filePath,String info){
+
+        PrintWriter writer = null;
+        try {
+            File file = new File(filePath);
+            boolean isExist = file.exists();
+            if(isExist != true){
+                file.createNewFile();
+            }else{
+                if(!flag.equals("NO")){
+                    file.delete();
+                    file.createNewFile();
+                }
+            }
+            writer = new PrintWriter(new FileOutputStream(file, true));
+            writer.print(info);
+            writer.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally{
+            writer.close();
+        }
+
+
 }

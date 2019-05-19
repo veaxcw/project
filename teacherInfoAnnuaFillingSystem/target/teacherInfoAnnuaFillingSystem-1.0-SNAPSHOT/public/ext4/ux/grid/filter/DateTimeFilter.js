@@ -1,5 +1,5 @@
 /**
- * Filter by a configurable Ext.picker.DatePicker menu
+ * filter by a configurable Ext.picker.DatePicker menu
  *
  * This filter allows for the following configurations:
  *
@@ -21,7 +21,7 @@
  * button text can be passed a config for convenience, i.e.,:
  *
  *     dock: {
- *        buttonText: 'Click to Filter',
+ *        buttonText: 'Click to filter',
  *        dock: 'left'
  *     }
  *
@@ -64,7 +64,7 @@
  *             },
  *
  *             dock: {
- *                 buttonText: 'Click to Filter',
+ *                 buttonText: 'Click to filter',
  *                 dock: 'left'
  *
  *                 // allows for custom dockedItems cfg

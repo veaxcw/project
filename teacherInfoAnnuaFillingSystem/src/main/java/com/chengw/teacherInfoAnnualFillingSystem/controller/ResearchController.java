@@ -4,7 +4,7 @@ package com.chengw.teacherInfoAnnualFillingSystem.controller;
 import com.chengw.teacherInfoAnnualFillingSystem.model.Research;
 import com.chengw.teacherInfoAnnualFillingSystem.model.Teacher;
 import com.chengw.teacherInfoAnnualFillingSystem.services.ResearchService;
-import main.util.CommonUtils;
+import com.chengw.teacherInfoAnnualFillingSystem.util.CommonUtils;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

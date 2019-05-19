@@ -34,8 +34,8 @@ public class LoginFilter implements Filter {
             if (teacher != null) {
                 chain.doFilter(request, response);
             } else {
-                request.getRequestDispatcher("login.jsp").forward(request,response);
-                /*response.sendRedirect("login.jsp");
+                request.getRequestDispatcher("login.html").forward(request,response);
+                /*response.sendRedirect("login.html");
                 * 搞清楚重定向和forward的区别，搞不清楚 别下**写*/
             }
         }

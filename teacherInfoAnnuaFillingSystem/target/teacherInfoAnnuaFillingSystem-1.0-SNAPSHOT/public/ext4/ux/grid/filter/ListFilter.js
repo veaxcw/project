@@ -117,7 +117,7 @@ Ext.define('Ext.ux.grid.filter.ListFilter', {
     /**
      * @private @override
      * Creates the Menu for this filter.
-     * @param {Object} config Filter configuration
+     * @param {Object} config filter configuration
      * @return {Ext.menu.Menu}
      */
     createMenu: function(config) {

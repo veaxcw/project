@@ -24,7 +24,7 @@
  *
  * ##Stateful:##
  *
- * Filter information will be persisted across page loads by specifying a `stateId`
+ * filter information will be persisted across page loads by specifying a `stateId`
  * in the Grid configuration.
  *
  * The filter collection binds to the {@link Ext.grid.Panel#beforestaterestore beforestaterestore}
@@ -211,7 +211,7 @@ Ext.define('Ext.ux.grid.FiltersFeature', {
     },
 
     /**
-     * @private Create the Filter objects for the current configuration, destroying any existing ones first.
+     * @private Create the filter objects for the current configuration, destroying any existing ones first.
      */
     createFilters: function() {
         var me = this,
@@ -777,7 +777,7 @@ Ext.define('Ext.ux.grid.FiltersFeature', {
     /**
      * Function for locating filter classes, overwrite this with your favorite
      * loader to provide dynamic filter loading.
-     * @param {String} type The type of filter to load ('Filter' is automatically
+     * @param {String} type The type of filter to load ('filter' is automatically
      * appended to the passed type; eg, 'string' becomes 'StringFilter').
      * @return {Function} The Ext.ux.grid.filter.Class
      */

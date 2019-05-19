@@ -1884,7 +1884,7 @@ function setupModuleLoader(window) {
            * @ngdoc method
            * @name angular.Module#filter
            * @module ng
-           * @param {string} name Filter name.
+           * @param {string} name filter name.
            * @param {Function} filterFactory Factory function for creating new instance of filter.
            * @description
            * See {@link ng.$filterProvider#register $filterProvider.register()}.
@@ -16322,7 +16322,7 @@ function $WindowProvider() {
  * annotated with dependencies and is responsible for creating a filter function.
  *
  * ```js
- *   // Filter registration
+ *   // filter registration
  *   function MyModule($provide, $filterProvider) {
  *     // create a service to demonstrate injection (not always needed)
  *     $provide.value('greet', function(name){
@@ -16343,7 +16343,7 @@ function $WindowProvider() {
  * ```
  *
  * The filter function is registered with the `$injector` under the filter name suffix with
- * `Filter`.
+ * `filter`.
  *
  * ```js
  *   it('should be the same instance', inject(

@@ -15,7 +15,7 @@ Ext.define('Ext.ux.data.PagingMemoryProxy', {
         // filtering
         filters = operation.filters;
         if (filters.length > 0) {
-            //at this point we have an array of  Ext.util.Filter objects to filter with,
+            //at this point we have an array of  Ext.util.filter objects to filter with,
             //so here we construct a function that combines these filters by ANDing them together
             records = [];
 

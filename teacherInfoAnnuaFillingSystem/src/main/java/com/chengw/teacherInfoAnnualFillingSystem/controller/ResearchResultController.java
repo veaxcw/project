@@ -3,7 +3,7 @@ package com.chengw.teacherInfoAnnualFillingSystem.controller;
 import com.chengw.teacherInfoAnnualFillingSystem.model.Researchresult;
 import com.chengw.teacherInfoAnnualFillingSystem.model.Teacher;
 import com.chengw.teacherInfoAnnualFillingSystem.services.ResearchResultService;
-import main.util.CommonUtils;
+import com.chengw.teacherInfoAnnualFillingSystem.util.CommonUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 

@@ -10,7 +10,7 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void configureViewResolvers(ViewResolverRegistry registry) {
-        registry.jsp().prefix("/public/");
+        registry.jsp().prefix("/static/");
         registry.jsp().suffix(".jsp");
     }
 

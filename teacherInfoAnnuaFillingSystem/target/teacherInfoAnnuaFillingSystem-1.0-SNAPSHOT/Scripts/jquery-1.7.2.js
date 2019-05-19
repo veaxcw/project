@@ -5044,7 +5044,7 @@ if ( document.documentElement.compareDocumentPosition ) {
 		Expr.find.TAG = function( match, context ) {
 			var results = context.getElementsByTagName( match[1] );
 
-			// Filter out possible comments
+			// filter out possible comments
 			if ( match[1] === "*" ) {
 				var tmp = [];
 
@@ -8300,7 +8300,7 @@ if ( jQuery.support.ajax ) {
 										statusText = "";
 									}
 
-									// Filter status for non standard behaviors
+									// filter status for non standard behaviors
 
 									// If the request is local and we have data: assume a success
 									// (success with no data won't get notified, that's the best we

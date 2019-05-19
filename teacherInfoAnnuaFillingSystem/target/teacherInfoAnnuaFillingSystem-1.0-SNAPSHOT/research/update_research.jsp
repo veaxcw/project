@@ -7,11 +7,11 @@
 	<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>教师年度工作填报系统</title>
-   		<link rel="stylesheet" type="text/css" href="../Styles/bootstrap.min.css" />
-    	<link rel="stylesheet" type="text/css" href="../Styles/admin-all.css" />
-    	<script type="text/javascript" src="../Scripts/jquery-1.7.2.js"></script>
-    	<script type="text/javascript" src="../Scripts/jquery-ui-1.8.22.custom.min.js"></script>
-    	<link rel="stylesheet" type="text/css" href="../Styles/ui-lightness/jquery-ui-1.8.22.custom.css" />
+   		<link rel="stylesheet" type="text/css" href="../../../../../../teacherInfoAnnuaFillingSystem/src/main/webapp/Styles/bootstrap.min.css" />
+    	<link rel="stylesheet" type="text/css" href="../../../../../../teacherInfoAnnuaFillingSystem/src/main/webapp/Styles/admin-all.css" />
+    	<script type="text/javascript" src="../../../../../../teacherInfoAnnuaFillingSystem/src/main/webapp/Scripts/jquery-1.7.2.js"></script>
+    	<script type="text/javascript" src="../../../../../../teacherInfoAnnuaFillingSystem/src/main/webapp/Scripts/jquery-ui-1.8.22.custom.min.js"></script>
+    	<link rel="stylesheet" type="text/css" href="../../../../../../teacherInfoAnnuaFillingSystem/src/main/webapp/Styles/ui-lightness/jquery-ui-1.8.22.custom.css" />
 <script type="text/javascript">
         $(function () {
             $(".datepicker").datepicker();

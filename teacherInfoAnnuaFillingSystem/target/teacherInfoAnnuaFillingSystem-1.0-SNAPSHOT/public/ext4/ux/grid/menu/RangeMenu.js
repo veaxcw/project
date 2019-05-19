@@ -83,7 +83,7 @@ fieldLabels : {
      * Default configuration options for each menu item
      * Defaults to:<pre>
 menuItemCfgs : {
-    emptyText: 'Enter Filter Text...',
+    emptyText: 'Enter filter Text...',
     selectOnFocus: true,
     width: 125
 }
