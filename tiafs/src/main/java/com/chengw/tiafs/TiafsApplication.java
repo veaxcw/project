@@ -12,7 +12,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  */
 @SpringBootApplication
 @MapperScan(basePackages = "com.chengw.tiafs.dao")
-@EnableSwagger2
 @ServletComponentScan
 public class TiafsApplication {
 

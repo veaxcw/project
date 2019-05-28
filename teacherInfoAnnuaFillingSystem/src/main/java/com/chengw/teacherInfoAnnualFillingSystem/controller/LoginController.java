@@ -3,6 +3,7 @@ package com.chengw.teacherInfoAnnualFillingSystem.controller;
 
 import com.chengw.teacherInfoAnnualFillingSystem.model.Teacher;
 import com.chengw.teacherInfoAnnualFillingSystem.services.TeacherService;
+import com.chengw.teacherInfoAnnualFillingSystem.util.CallJspToHtml;
 import main.util.VerifyCodeUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * @author chengw
+ */
 @Controller
 public class LoginController {
 
@@ -29,22 +33,31 @@ public class LoginController {
 
         String checkCode = request.getParameter("checkcode").toLowerCase();
 
-        Teacher teacher = teacherService.getTeacherByUsername(username);
+        /*Teacher teacher = teacherService.getTeacherByUsername(username);*/
 
-        if(/*checkCode.equals(verifyCode)*/true){//TODO
-            if(username.equals(teacher.getUsername()) && password.equals(teacher.getPassword())){
-
+        Teacher teacher = new Teacher();
+        teacher.setUsername("程威");
+        //TODO
+        if(/*checkCode.equals(verifyCode)*/true){
+            if(/*username.equals(teacher.getUsername()) && password.equals(teacher.getPassword())*/true){
+                //我觉得这么做不安全
                 HttpSession session = request.getSession();
-                session.setAttribute("teacher",teacher);//我觉得这么做不安全
+                session.setAttribute("teacher",teacher);
+
+                String basePath = request.getContextPath();
+                String path = "";
+
+                CallJspToHtml.CallOnePage(basePath,"index.jsp",path,"index","");
+
                 return  "index";
             }
-
-            else
+            else {
                 return "error";
-
+            }
         }
-        else
-             return  "error";
+        else {
+            return  "error";
+        }
 
 
     }

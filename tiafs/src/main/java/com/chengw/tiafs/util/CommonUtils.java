@@ -9,7 +9,6 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import org.apache.commons.beanutils.Converter;
-import org.apache.jasper.tagplugins.jstl.core.Url;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -46,8 +45,9 @@ public class CommonUtils {
 
         String uploadPath = CommonUtils.filePath + leafPath;//设置文件目录
         File uploadDir = new File(uploadPath);
-        if(!uploadDir.exists())
+        if(!uploadDir.exists()) {
             uploadDir.mkdirs();
+        }
 
         try {
             List<FileItem> fileItems = upload.parseRequest(request);

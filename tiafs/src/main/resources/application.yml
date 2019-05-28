@@ -6,10 +6,8 @@ spring:
   application:
     name: tiafs
 
-
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/cw_tiafs?serverTimezone=Asia/Shanghai&allowMultiQueries=true
     username: root
     password: xveacw8023
-

@@ -10,6 +10,7 @@ import com.chengw.tiafs.vo.LoginEntity;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,34 +26,29 @@ import java.io.IOException;
 /**
  * @author chengw
  */
-@RestController
+@Controller
 @RequestMapping(value = "/api")
-@Api
 @Slf4j
 public class LoginController {
 
     @Resource
     private TeacherService teacherService;
 
-    @RequestMapping(value = "/login",method = RequestMethod.POST, produces = "application/json")
-    @ApiOperation(value = "登陆",notes = "登陆",produces = "json")
-    public String login(@RequestBody LoginEntity login,HttpServletRequest request,HttpServletResponse response){
+    @RequestMapping(value = "/login")
+    public String login(/*@RequestBody LoginEntity login,*/HttpServletRequest request,HttpServletResponse response){
         log.info("开始登录");
-        String username = login.getUsername();
-        String password = login.getPassword();
+//        String username = login.getUsername();
+//        String password = login.getPassword();
 
         //Teacher teacher = teacherService.getTeacherByUsername(username);
 
-        RequestUtil.sendRedirect(response,"/index.html");
-
-
-        return null;
+        /*RequestUtil.sendRedirect(response,"/index.html");*/
+        return "/index.html";
 
 
     }
 
     @RequestMapping(value = "/checkCode",method = RequestMethod.POST)
-    @ApiOperation(value = "验证码",notes = "验证码")
     public void verifyCode(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setHeader("Progma","No-cache");
         response.setHeader("Cache-Control","no-cache");
