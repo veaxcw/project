@@ -8,6 +8,7 @@ import com.chengw.tiafs.util.VerifyCodeUtil;
 import com.chengw.tiafs.vo.LoginEntity;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,17 +27,18 @@ import java.io.IOException;
 @RestController
 @RequestMapping(value = "/api")
 @Api
+@Slf4j
 public class LoginController {
 
     @Resource
     private TeacherService teacherService;
 
-    @RequestMapping(value = "/login",produces = "application/json")
+    @RequestMapping(value = "/login",method = RequestMethod.POST, produces = "application/json")
     @ApiOperation(value = "登陆",notes = "登陆",produces = "json")
     public String login(@RequestBody LoginEntity login,HttpServletRequest request){
-
-          String username = login.getUserName();
-          String password = login.getPassword();
+        log.info("开始登录");
+        String username = login.getUsername();
+        String password = login.getPassword();
 
         Teacher teacher = teacherService.getTeacherByUsername(username);
 

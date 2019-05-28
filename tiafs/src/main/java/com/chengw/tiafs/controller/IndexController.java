@@ -1,5 +1,6 @@
 package com.chengw.tiafs.controller;
 
+import com.chengw.tiafs.util.RequestUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,11 +19,7 @@ public class IndexController {
     public void login( HttpServletResponse response){
 
         log.info("测试登录");
-        try {
-            response.sendRedirect("/signin.html");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        RequestUtil.sendRedirect(response,"/signin.html");
     }
 
 }

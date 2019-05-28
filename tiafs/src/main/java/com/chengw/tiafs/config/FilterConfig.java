@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * @author chengw
  */
-@Configuration
+//@Configuration
 public class FilterConfig {
 
     @Autowired
