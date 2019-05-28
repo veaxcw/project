@@ -20,42 +20,42 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * @author chengw
+ */
 @RestController
+@RequestMapping(value = "/api")
 @Api
 public class LoginController {
 
     @Resource
     private TeacherService teacherService;
 
-    @RequestMapping(value = "/login",method = RequestMethod.POST)
+    @RequestMapping(value = "/login",produces = "application/json")
     @ApiOperation(value = "登陆",notes = "登陆",produces = "json")
     public String login(@RequestBody LoginEntity login,HttpServletRequest request){
-        //String username = request.getParameter("usercode");
-//        String password = request.getParameter("password");
-//
-//        String verifyCode = String.valueOf(request.getSession().getAttribute("verCode"));
-//
-//        String checkCode = request.getParameter("checkcode").toLowerCase();
 
           String username = login.getUserName();
           String password = login.getPassword();
 
         Teacher teacher = teacherService.getTeacherByUsername(username);
 
-        if(/*checkCode.equals(verifyCode)*/true){//TODO
+        //TODO
+        if(/*checkCode.equals(verifyCode)*/true){
             if(username.equals(teacher.getUserName()) && password.equals(teacher.getPassword())){
 
                 HttpSession session = request.getSession();
-                session.setAttribute("teacher",teacher);//我觉得这么做不安全
+                //我觉得这么做不安全
+                session.setAttribute("teacher",teacher);
                 return  "index";
             }
-
-            else
+            else {
                 return "error";
-
+            }
         }
-        else
-             return  "error";
+        else {
+            return  "error";
+        }
 
 
     }

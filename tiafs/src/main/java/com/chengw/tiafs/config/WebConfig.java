@@ -2,21 +2,20 @@ package com.chengw.tiafs.config;
 
 
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
-//@Configuration
-public class WebConfig implements WebMvcConfigurer {
+/**
+ * @author chengw
+ */
+@Configuration
+public class WebConfig extends WebMvcConfigurationSupport {
 
     @Override
-    public void configureViewResolvers(ViewResolverRegistry registry) {
-        registry.jsp().prefix("/static/");
-        registry.jsp().suffix(".jsp");
+    protected void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/**").addResourceLocations("classpath:/static/");
+
+        super.addResourceHandlers(registry);
     }
-
-
-
-
-
 
 }
