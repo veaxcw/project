@@ -4,6 +4,7 @@ package com.chengw.tiafs.controller;
 
 import com.chengw.tiafs.model.Teacher;
 import com.chengw.tiafs.services.TeacherService;
+import com.chengw.tiafs.util.RequestUtil;
 import com.chengw.tiafs.util.VerifyCodeUtil;
 import com.chengw.tiafs.vo.LoginEntity;
 import io.swagger.annotations.Api;
@@ -35,29 +36,17 @@ public class LoginController {
 
     @RequestMapping(value = "/login",method = RequestMethod.POST, produces = "application/json")
     @ApiOperation(value = "登陆",notes = "登陆",produces = "json")
-    public String login(@RequestBody LoginEntity login,HttpServletRequest request){
+    public String login(@RequestBody LoginEntity login,HttpServletRequest request,HttpServletResponse response){
         log.info("开始登录");
         String username = login.getUsername();
         String password = login.getPassword();
 
-        Teacher teacher = teacherService.getTeacherByUsername(username);
+        //Teacher teacher = teacherService.getTeacherByUsername(username);
 
-        //TODO
-        if(/*checkCode.equals(verifyCode)*/true){
-            if(username.equals(teacher.getUserName()) && password.equals(teacher.getPassword())){
+        RequestUtil.sendRedirect(response,"/index.html");
 
-                HttpSession session = request.getSession();
-                //我觉得这么做不安全
-                session.setAttribute("teacher",teacher);
-                return  "index";
-            }
-            else {
-                return "error";
-            }
-        }
-        else {
-            return  "error";
-        }
+
+        return null;
 
 
     }

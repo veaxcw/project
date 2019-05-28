@@ -18,6 +18,28 @@
     function reloadImage(){
     	document.getElementById("identity").src="checkCode?ts"+ new Date().getTime();
     }
+    function login(){
+
+        let username = document.getElementById("usercode").value;
+        let password = document.getElementById("password").value;
+        let checkCode = document.getElementById("code").value;
+
+        $.ajax({
+            type:"post",
+            url:"/api/login",
+            dataType:"json",
+            contentType:"application/json",
+            data:JSON.stringify({
+                "username": username,
+                "password": password,
+                "checkCode": checkCode
+            }),
+            success:function () {
+
+            }
+        });
+    }
+
     </script>
   </head>
   
@@ -25,11 +47,11 @@
     <div id="clouds" class="stage"></div>
     <div class="loginMain">
     </div>
-<form action="/tiafs/api/login" method="post" id="loginForm">
+<form action="" method="post" onsubmit="return false" id="loginForm">
     <div class="row-fluid">
         <h1>教师年度工作填报系统</h1>
         <p>
-            <label>帐&nbsp;&nbsp;&nbsp;号：<input type="text" name="username" id="username" /></label>
+            <label>帐&nbsp;&nbsp;&nbsp;号：<input type="text" name="usercode" id="usercode" /></label>
         </p>
         <p>
             <label>密&nbsp;&nbsp;&nbsp;码：<input type="password" name="password" id="password" /></label>
@@ -40,7 +62,7 @@
         </p>
         
         <p class="tip">&nbsp;</p>
-        <input type="submit" value=" 登 录 " class="btn btn-primary btn-large login" />
+        <input type="button" value=" 登 录 " class="btn btn-primary btn-large login" onclick="login()" />
         &nbsp;&nbsp;&nbsp;<input type="reset" value=" 重 置 " class="btn btn-large" />
     </div>
 </form>
