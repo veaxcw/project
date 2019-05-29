@@ -11,3 +11,4 @@ spring:
     url: jdbc:mysql://localhost:3306/cw_tiafs?serverTimezone=Asia/Shanghai&allowMultiQueries=true
     username: root
     password: xveacw8023
+uffix: .html

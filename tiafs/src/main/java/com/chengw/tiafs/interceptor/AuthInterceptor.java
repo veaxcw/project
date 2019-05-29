@@ -24,13 +24,17 @@ public class AuthInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         log.info("测试拦截器");
+
+        request.getRequestURI();
+        log.info(request.getRequestURI());
         boolean flag = true;
         //checkSession(request);
         HttpSession session = request.getSession();
         UserInfo user = (UserInfo) session.getAttribute("user");
         if(user == null){
-            //RequestUtil.sendRedirect(response,"/login.html");
-            response.sendRedirect("signin.html");
+            log.info("转发请求至登录界面");
+            request.getRequestDispatcher("/api/signin").forward(request,response);
+            //RequestUtil.sendRedirect(response,"/api/signin");
             flag = false;
         }
 

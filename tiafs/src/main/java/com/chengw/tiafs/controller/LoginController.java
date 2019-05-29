@@ -2,6 +2,7 @@ package com.chengw.tiafs.controller;
 
 
 
+import com.chengw.tiafs.common.UserInfo;
 import com.chengw.tiafs.model.Teacher;
 import com.chengw.tiafs.services.TeacherService;
 import com.chengw.tiafs.util.RequestUtil;
@@ -34,18 +35,11 @@ public class LoginController {
     @Resource
     private TeacherService teacherService;
 
-    @RequestMapping(value = "/login")
-    public String login(/*@RequestBody LoginEntity login,*/HttpServletRequest request,HttpServletResponse response){
+    @RequestMapping(value = "/signin")
+    public void login(/*@RequestBody LoginEntity login,*/HttpServletRequest request,HttpServletResponse response){
         log.info("开始登录");
-//        String username = login.getUsername();
-//        String password = login.getPassword();
 
-        //Teacher teacher = teacherService.getTeacherByUsername(username);
-
-        /*RequestUtil.sendRedirect(response,"/index.html");*/
-        return "/index.html";
-
-
+        RequestUtil.sendRedirect(response,"/signin.html");
     }
 
     @RequestMapping(value = "/checkCode",method = RequestMethod.POST)
