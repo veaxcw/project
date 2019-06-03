@@ -28,13 +28,12 @@ public class AuthInterceptor implements HandlerInterceptor {
         request.getRequestURI();
         log.info(request.getRequestURI());
         boolean flag = true;
-        //checkSession(request);
+        checkSession(request);
         HttpSession session = request.getSession();
         UserInfo user = (UserInfo) session.getAttribute("user");
         if(user == null){
             log.info("转发请求至登录界面");
             request.getRequestDispatcher("/api/signin").forward(request,response);
-            //RequestUtil.sendRedirect(response,"/api/signin");
             flag = false;
         }
 

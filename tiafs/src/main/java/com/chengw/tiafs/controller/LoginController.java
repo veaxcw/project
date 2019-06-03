@@ -42,7 +42,7 @@ public class LoginController {
         RequestUtil.sendRedirect(response,"/signin.html");
     }
 
-    @RequestMapping(value = "/checkCode",method = RequestMethod.POST)
+    @RequestMapping(value = "/checkCode",method = RequestMethod.GET)
     public void verifyCode(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setHeader("Progma","No-cache");
         response.setHeader("Cache-Control","no-cache");

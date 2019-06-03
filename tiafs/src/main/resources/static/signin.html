@@ -16,7 +16,7 @@
     <script type="text/javascript">
     //刷新验证码
     function reloadImage(){
-    	document.getElementById("identity").src="checkCode?ts"+ new Date().getTime();
+    	document.getElementById("identity").src="/tiafs/api/checkCode?ts=" + new Date().getDate();
     }
     function login(){
 
@@ -58,7 +58,7 @@
         </p>
        <p class="pcode">
             <label>验证码：<input type="text" id="code" name="checkCode"/>
-                <img src="checkCode" alt="验证码" title="点击更换" id="identity" onclick="reloadImage()"/></label>
+                <img src="/tiafs/api/checkCode" alt="验证码" title="点击更换" id="identity" onclick="reloadImage()"/></label>
         </p>
         
         <p class="tip">&nbsp;</p>

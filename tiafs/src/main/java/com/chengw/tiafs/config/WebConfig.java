@@ -37,7 +37,7 @@ public class WebConfig extends WebMvcConfigurationSupport {
          * ***/
 
         registry.addInterceptor(authInterceptor).addPathPatterns("/**").excludePathPatterns("/api/signin","/signin.html",
-                "/Styles/**","/Scripts/**","/checkCode","/favicon.ico","/images/**","/img/**","/public/**","/error");
+                "/Styles/**","/Scripts/**","/api/checkCode","/favicon.ico","/images/**","/img/**","/public/**","/error");
         super.addInterceptors(registry);
     }
 
