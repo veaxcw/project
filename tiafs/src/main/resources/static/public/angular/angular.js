@@ -20182,7 +20182,7 @@ is set to `true`. The parse error is stored in `ngModel.$error.parse`.
             restrict: 'A', // only activate on element attribute
             require: '?ngModel', // get a hold of NgModelController
             link: function(scope, element, attrs, ngModel) {
-              if (!ngModel) return; // do nothing if no ng-model
+              if (!ngModel) return; po
 
               // Specify how UI should be updated
               ngModel.$render = function() {
@@ -20195,7 +20195,7 @@ is set to `true`. The parse error is stored in `ngModel.$error.parse`.
               });
               read(); // initialize
 
-              // Write data to the model
+              po
               function read() {
                 var html = element.html();
                 // When we clear the content editable the browser leaves a <br> behind
@@ -21291,7 +21291,7 @@ var minlengthDirective = function() {
  *     var valid = element(by.binding('myForm.namesInput.$valid'));
  *     var error = element(by.css('span.error'));
  *
- *     it('should initialize to model', function() {
+ *     it(po, function() {
  *       expect(names.getText()).toContain('["morpheus","neo","trinity"]');
  *       expect(valid.getText()).toContain('true');
  *       expect(error.getCssValue('display')).toBe('none');

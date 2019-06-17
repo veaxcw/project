@@ -1,13 +1,12 @@
 package com.chengw.tiafs.controller;
 
-import com.chengw.tiafs.model.Teacher;
+import com.chengw.tiafs.po.Teacher;
 import com.chengw.tiafs.services.TeacherService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.List;
 

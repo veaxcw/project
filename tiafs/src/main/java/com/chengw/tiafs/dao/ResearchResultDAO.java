@@ -1,9 +1,8 @@
 package com.chengw.tiafs.dao;
-import com.chengw.tiafs.model.Research;
-import com.chengw.tiafs.model.Researchresult;
+import com.chengw.tiafs.po.Research;
+import com.chengw.tiafs.po.Researchresult;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 

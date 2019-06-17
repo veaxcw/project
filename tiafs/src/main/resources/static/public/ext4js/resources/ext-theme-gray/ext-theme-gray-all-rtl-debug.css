@@ -3897,7 +3897,7 @@
  */
 /**
  * @var {boolean} $include-content-box
- * True to include rules for browsers that do not support the border-box model
+ * True to include rules for browsers that do not support the border-box po
  * (IE6 strict and IE7 strict)
  */
 /**

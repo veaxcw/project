@@ -1,17 +1,18 @@
-package com.chengw.tiafs.model;
+package com.chengw.tiafs.po;
 
 import lombok.Data;
 
 @Data
-public class Research {
-    private int rId;
-    private String rName;
-    private String rPath;
+public class Article {
+
+    private int aId;
+    private String aName;
+    private String aPath;
     private String publishDate;
     private String publishReader;
     private String uploadDate;
     private String summary;
-    private String funds;
     private String userCode;
+
 
 }

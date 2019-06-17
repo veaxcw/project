@@ -3,7 +3,7 @@ package com.chengw.tiafs.filter;
 
 
 
-import com.chengw.tiafs.model.Teacher;
+import com.chengw.tiafs.po.Teacher;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;

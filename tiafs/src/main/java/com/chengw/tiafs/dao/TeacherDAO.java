@@ -1,6 +1,6 @@
 package com.chengw.tiafs.dao;
 
-import com.chengw.tiafs.model.Teacher;
+import com.chengw.tiafs.po.Teacher;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 

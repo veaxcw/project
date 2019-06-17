@@ -2,7 +2,7 @@ package com.chengw.tiafs.controller;
 
 
 
-import com.chengw.tiafs.model.Teacher;
+import com.chengw.tiafs.po.Teacher;
 import com.chengw.tiafs.services.TeacherService;
 import com.chengw.tiafs.util.VerifyCodeUtil;
 import com.chengw.tiafs.vo.LoginEntity;
