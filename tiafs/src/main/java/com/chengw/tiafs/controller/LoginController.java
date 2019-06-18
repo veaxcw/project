@@ -1,22 +1,13 @@
 package com.chengw.tiafs.controller;
 
 
-
-import com.chengw.tiafs.common.UserInfo;
-import com.chengw.tiafs.model.Teacher;
 import com.chengw.tiafs.services.TeacherService;
 import com.chengw.tiafs.util.RequestUtil;
 import com.chengw.tiafs.util.VerifyCodeUtil;
-import com.chengw.tiafs.vo.LoginEntity;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;

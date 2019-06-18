@@ -1,13 +1,10 @@
 package com.chengw.tiafs.interceptor;
 
-import com.alibaba.fastjson.JSONPObject;
-import com.chengw.tiafs.common.UserInfo;
 import com.alibaba.fastjson.JSONObject;
-import com.chengw.tiafs.util.RequestUtil;
+import com.chengw.tiafs.common.UserInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
