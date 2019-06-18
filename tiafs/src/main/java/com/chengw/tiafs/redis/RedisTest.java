@@ -1,4 +1,4 @@
-package com.chengw.tiafs.test;
+package com.chengw.tiafs.redis;
 
 import com.chengw.tiafs.model.Article;
 import com.chengw.tiafs.util.RedisUtil;
@@ -6,12 +6,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.dao.DataAccessException;
-import org.springframework.data.redis.core.RedisOperations;
-import org.springframework.data.redis.core.SessionCallback;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.lang.reflect.Field;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -22,6 +18,9 @@ public class RedisTest {
 
     @Autowired
     private RedisUtil redisUtil;
+
+    @Autowired
+    private SecService secService;
 
     @Test
     public void redis() {
@@ -45,15 +44,21 @@ public class RedisTest {
         redisUtil.hset("article","uploadDate",article.getUploadDate());
 
 
-
-
-
         //redisUtil.hmset("article",a);
         //redisUtil.hdel("article",fields);
         // redisUtil.del("article");
 
 
     }
+
+    @Test
+    public void SecTest(){
+        for(int i = 0;i < 100;i++){
+            SecThread t = new SecThread(secService,i);
+            t.start();
+        }
+    }
+
 
 }
 
