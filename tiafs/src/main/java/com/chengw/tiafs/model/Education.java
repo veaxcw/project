@@ -2,6 +2,9 @@ package com.chengw.tiafs.model;
 
 import lombok.Data;
 
+/**
+ * @author chengw
+ */
 @Data
 public class Education {
     private int eduId;
