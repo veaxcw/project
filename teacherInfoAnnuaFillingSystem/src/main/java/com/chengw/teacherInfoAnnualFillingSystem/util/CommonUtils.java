@@ -18,6 +18,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author chengw
+ */
 public class CommonUtils {
 
     public static String filePath = "D:/veax/java_OOP/java_OOP/webssm-Project/demo-1/src/webapp/upload/";
@@ -118,7 +121,7 @@ public class CommonUtils {
             if(isExist != true){
                 file.createNewFile();
             }else{
-                if(!flag.equals("NO")){
+                if(!"NO".equals(file)){
                     file.delete();
                     file.createNewFile();
                 }
@@ -133,4 +136,5 @@ public class CommonUtils {
         }
 
 
+}
 }

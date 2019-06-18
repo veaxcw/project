@@ -41,8 +41,9 @@ public class CommonUtils {
 
         String uploadPath = CommonUtils.filePath + leafPath;//设置文件目录
         File uploadDir = new File(uploadPath);
-        if(!uploadDir.exists())
+        if(!uploadDir.exists()) {
             uploadDir.mkdirs();
+        }
 
         try {
             List<FileItem> fileItems = upload.parseRequest(request);

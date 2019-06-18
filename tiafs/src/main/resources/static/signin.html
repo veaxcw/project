@@ -1,6 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
+      <meta charset="UTF-8"/>
     <base href="<%=basePath%>">
      <title>教师年度工作填报系统</title>
      <link rel="icon" href="favicon.ico" type="image/x-icon" />
@@ -15,8 +16,30 @@
     <script type="text/javascript">
     //刷新验证码
     function reloadImage(){
-    	document.getElementById("identity").src="checkCode?ts"+ new Date().getTime();
+    	document.getElementById("identity").src="/tiafs/api/checkCode?ts=" + new Date().getDate();
     }
+    function login(){
+
+        let username = document.getElementById("usercode").value;
+        let password = document.getElementById("password").value;
+        let checkCode = document.getElementById("code").value;
+
+        $.ajax({
+            type:"post",
+            url:"/tiafs/api/login",
+            dataType:"json",
+            contentType:"application/json",
+            data:JSON.stringify({
+                "username": username,
+                "password": password,
+                "checkCode": checkCode
+            }),
+            success:function () {
+
+            }
+        });
+    }
+
     </script>
   </head>
   
@@ -24,7 +47,7 @@
     <div id="clouds" class="stage"></div>
     <div class="loginMain">
     </div>
-<form action="login" method="post" id="loginForm">
+<form action="" method="post" onsubmit="return false" id="loginForm">
     <div class="row-fluid">
         <h1>教师年度工作填报系统</h1>
         <p>
@@ -35,13 +58,15 @@
         </p>
        <p class="pcode">
             <label>验证码：<input type="text" id="code" name="checkCode"/>
-                <img src="checkCode" alt="验证码" title="点击更换" id="identity" onclick="reloadImage()"/></label>
+                <img src="/tiafs/api/checkCode" alt="验证码" title="点击更换" id="identity" onclick="reloadImage()"/></label>
         </p>
         
         <p class="tip">&nbsp;</p>
-        <input type="submit" value=" 登 录 " class="btn btn-primary btn-large login" />
+        <input type="button" value=" 登 录 " class="btn btn-primary btn-large login" onclick="login()" />
         &nbsp;&nbsp;&nbsp;<input type="reset" value=" 重 置 " class="btn btn-large" />
     </div>
 </form>
 </body>
 </html>
+
+

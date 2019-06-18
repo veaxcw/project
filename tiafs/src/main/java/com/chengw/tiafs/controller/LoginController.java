@@ -2,12 +2,16 @@ package com.chengw.tiafs.controller;
 
 
 
-import com.chengw.tiafs.po.Teacher;
+import com.chengw.tiafs.common.UserInfo;
+import com.chengw.tiafs.model.Teacher;
 import com.chengw.tiafs.services.TeacherService;
+import com.chengw.tiafs.util.RequestUtil;
 import com.chengw.tiafs.util.VerifyCodeUtil;
 import com.chengw.tiafs.vo.LoginEntity;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,48 +24,25 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@RestController
-@Api
+/**
+ * @author chengw
+ */
+@Controller
+@RequestMapping(value = "/api")
+@Slf4j
 public class LoginController {
 
     @Resource
     private TeacherService teacherService;
 
-    @RequestMapping(value = "/login",method = RequestMethod.POST)
-    @ApiOperation(value = "登陆",notes = "登陆",produces = "json")
-    public String login(@RequestBody LoginEntity login,HttpServletRequest request){
-        //String username = request.getParameter("usercode");
-//        String password = request.getParameter("password");
-//
-//        String verifyCode = String.valueOf(request.getSession().getAttribute("verCode"));
-//
-//        String checkCode = request.getParameter("checkcode").toLowerCase();
+    @RequestMapping(value = "/signin")
+    public void login(/*@RequestBody LoginEntity login,*/HttpServletRequest request,HttpServletResponse response){
+        log.info("开始登录");
 
-          String username = login.getUserName();
-          String password = login.getPassword();
-
-        Teacher teacher = teacherService.getTeacherByUsername(username);
-
-        if(/*checkCode.equals(verifyCode)*/true){//TODO
-            if(username.equals(teacher.getUserName()) && password.equals(teacher.getPassword())){
-
-                HttpSession session = request.getSession();
-                session.setAttribute("teacher",teacher);//我觉得这么做不安全
-                return  "index";
-            }
-
-            else
-                return "error";
-
-        }
-        else
-             return  "error";
-
-
+        RequestUtil.sendRedirect(response,"/signin.html");
     }
 
-    @RequestMapping(value = "/checkCode",method = RequestMethod.POST)
-    @ApiOperation(value = "验证码",notes = "验证码")
+    @RequestMapping(value = "/checkCode",method = RequestMethod.GET)
     public void verifyCode(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setHeader("Progma","No-cache");
         response.setHeader("Cache-Control","no-cache");

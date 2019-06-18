@@ -13,6 +13,9 @@ import org.springframework.transaction.annotation.TransactionManagementConfigure
 
 import javax.sql.DataSource;
 
+/**
+ * @author chengw
+ */
 @Configuration
 @EnableTransactionManagement
 public class MybatisConfig implements TransactionManagementConfigurer {

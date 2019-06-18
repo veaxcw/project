@@ -2,9 +2,16 @@ package com.chengw.tiafs.po;
 
 import lombok.Data;
 
-@Data
-public class Article {
+import java.io.Serializable;
 
+/**
+ * @author chengw
+ */
+@Data
+public class Article implements Serializable {
+
+
+    private static final long serialVersionUID = -8675120166231446838L;
     private int aId;
     private String aName;
     private String aPath;
