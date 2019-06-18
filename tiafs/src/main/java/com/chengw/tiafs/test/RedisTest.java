@@ -1,23 +1,22 @@
 package com.chengw.tiafs.test;
 
-<<<<<<< HEAD
+import com.chengw.tiafs.po.Article;
 import com.chengw.tiafs.po.Role;
-=======
-import com.chengw.tiafs.model.Article;
 import com.chengw.tiafs.util.RedisUtil;
->>>>>>> cb4a3a3c86546293dd96a4d00e4ce230eebcf24a
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.redis.core.RedisOperations;
-<<<<<<< HEAD
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.SessionCallback;
-import org.springframework.stereotype.Component;
 import org.springframework.test.context.junit4.SpringRunner;
 import redis.clients.jedis.Jedis;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Redis 测试
@@ -29,6 +28,9 @@ public class RedisTest {
 
     @Autowired
     private RedisTemplate redisTemplate;
+
+    @Autowired
+    private RedisUtil redisUtil;
 
     public static void main(String[] args) {
         Jedis jedis = new Jedis("localhost",6379);
@@ -53,8 +55,8 @@ public class RedisTest {
     }
 
     @Test
-    public void Test(){
-        Role role  = new Role();
+    public void Test() {
+        Role role = new Role();
         role.setId(1L);
         role.setName("chengw");
 
@@ -68,21 +70,9 @@ public class RedisTest {
             }
         };
         redisTemplate.execute(sessionCallback);
-=======
-import org.springframework.data.redis.core.SessionCallback;
-import org.springframework.test.context.junit4.SpringRunner;
+    }
 
-import java.lang.reflect.Field;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
-public class RedisTest {
-
-    @Autowired
-    private RedisUtil redisUtil;
 
     @Test
     public void redis() {
@@ -112,13 +102,9 @@ public class RedisTest {
         //redisUtil.hmset("article",a);
         //redisUtil.hdel("article",fields);
         // redisUtil.del("article");
->>>>>>> cb4a3a3c86546293dd96a4d00e4ce230eebcf24a
 
 
     }
 
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> cb4a3a3c86546293dd96a4d00e4ce230eebcf24a
