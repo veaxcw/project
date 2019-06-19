@@ -1,7 +1,7 @@
 package com.chengw.tiafs.services.support;
 
 import com.chengw.tiafs.dao.TeacherDAO;
-import com.chengw.tiafs.model.Teacher;
+import com.chengw.tiafs.po.Teacher;
 import com.chengw.tiafs.services.TeacherService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

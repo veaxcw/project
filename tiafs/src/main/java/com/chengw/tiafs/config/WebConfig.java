@@ -32,7 +32,7 @@ public class WebConfig extends WebMvcConfigurationSupport {
          * excludePathPatterns 排除拦截器规则
          * ***/
 
-        registry.addInterceptor(authInterceptor).addPathPatterns("/**").excludePathPatterns("/api/signin","/signin.html",
+        registry.addInterceptor(authInterceptor).addPathPatterns("/**").excludePathPatterns("/sec","/api/signin","/signin.html",
                 "/Styles/**","/Scripts/**","/api/checkCode","/favicon.ico","/images/**","/img/**","/public/**","/error");
         super.addInterceptors(registry);
     }

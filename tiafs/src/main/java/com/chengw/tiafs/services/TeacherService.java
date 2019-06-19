@@ -1,7 +1,7 @@
 package com.chengw.tiafs.services;
 
 
-import com.chengw.tiafs.model.Teacher;
+import com.chengw.tiafs.po.Teacher;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
