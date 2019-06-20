@@ -2,6 +2,7 @@ package com.chengw.tiafs.interceptor;
 
 import com.alibaba.fastjson.JSONObject;
 import com.chengw.tiafs.common.UserInfo;
+import com.chengw.tiafs.vo.LoginEntity;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -25,10 +26,10 @@ public class AuthInterceptor implements HandlerInterceptor {
         request.getRequestURI();
         log.info(request.getRequestURI());
         boolean flag = true;
-        checkSession(request);
+        //checkSession(request);
         HttpSession session = request.getSession();
-        UserInfo user = (UserInfo) session.getAttribute("user");
-        if(user == null){
+        LoginEntity user = (LoginEntity) session.getAttribute("user");
+        if(user == null || user.getUsername() == null){
             log.info("转发请求至登录界面");
             request.getRequestDispatcher("/api/signin").forward(request,response);
             flag = false;

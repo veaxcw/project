@@ -4,12 +4,15 @@ package com.chengw.tiafs.controller;
 import com.chengw.tiafs.services.TeacherService;
 import com.chengw.tiafs.util.RequestUtil;
 import com.chengw.tiafs.util.VerifyCodeUtil;
+import com.chengw.tiafs.vo.LoginEntity;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.annotation.Resource;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -27,10 +30,40 @@ public class LoginController {
     private TeacherService teacherService;
 
     @RequestMapping(value = "/signin")
-    public void login(/*@RequestBody LoginEntity login,*/HttpServletRequest request,HttpServletResponse response){
+    public void siginin(HttpServletRequest request, HttpServletResponse response){
         log.info("开始登录");
 
         RequestUtil.sendRedirect(response,"/signin.html");
+    }
+
+    @RequestMapping(value = "/index")
+    public void index(HttpServletRequest request, HttpServletResponse response){
+        log.info("显示主页");
+
+        RequestUtil.sendRedirect(response,"/index.html");
+    }
+
+    @RequestMapping(value = "/login")
+    public void login(@RequestBody LoginEntity loginfo,HttpServletRequest request, HttpServletResponse response){
+        log.info("验证登录");
+
+        HttpSession session = request.getSession();
+        String verCode = session.getAttribute("verCode").toString();
+
+        if(verCode.equalsIgnoreCase(loginfo.getCheckCode())){
+            session.setAttribute("user",loginfo);
+            log.info("登录成功");
+            /**RequestUtil.sendRedirect(response,"/index.html");**/
+            try {
+                request.getRequestDispatcher("/api/index").forward(request,response);
+            } catch (ServletException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+
     }
 
     @RequestMapping(value = "/checkCode",method = RequestMethod.GET)
