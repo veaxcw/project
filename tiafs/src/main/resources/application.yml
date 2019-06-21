@@ -2,7 +2,15 @@ server:
   port: 8088
   servlet:
     context-path: /tiafs/
+
 spring:
+  application:
+    name: tiafs
+
+  cloud:
+    config:
+      uri: http://localhost:8001
+
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/cw_tiafs?serverTimezone=Asia/Shanghai&allowMultiQueries=true
@@ -19,3 +27,4 @@ spring:
         max-idle: 10
         min-idle: 0
     timeout: 1000
+
