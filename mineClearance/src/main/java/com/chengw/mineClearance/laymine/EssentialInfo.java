@@ -3,8 +3,30 @@ package com.chengw.mineClearance.laymine;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import java.nio.file.Path;
 
+/**
+ * @author chengw
+ */
 public class EssentialInfo {
+
+    private static final String PATH = "resource/image";
+
+    public static ImageIcon imageIcon = new ImageIcon(PATH + "/icon.gif");
+    public static Icon icon = new ImageIcon(PATH +"/001.png");
+    public static Icon background = new ImageIcon( PATH +"/background.png");
+    public static Icon smile = new ImageIcon(PATH +"/face0.gif");
+    public static Icon click = new ImageIcon(PATH +"/face2.gif");
+    public static Icon upset = new ImageIcon(PATH +"/face03.gif");
+    public static Icon win = new ImageIcon(PATH +"/face4.gif");
+    public static Icon flag = new ImageIcon(PATH +"/flag.png");
+    public static Icon ask = new ImageIcon(PATH +"/ask.png");
+    public static Icon askpress = new ImageIcon(PATH +"/ask1.gif");
+    public static Icon black = new ImageIcon(PATH +"/mine.gif");
+    public static Icon bomb = new ImageIcon(PATH +"/bomb.png");
+    public static Icon hole = new ImageIcon(PATH +"/hole.gif");
+    public static Icon blood = new ImageIcon(PATH +"/blood.gif");
+
 	public static int allcount = 10;
 	public static int allcol = 9;
 	public static int allrow = 9;
@@ -19,27 +41,14 @@ public class EssentialInfo {
 	
 	static {
 		for(int i = 0; i < num.length;i++) {
-			num[i] = new ImageIcon("src/image/" + i + ".png");
+			num[i] = new ImageIcon(PATH + i + ".png");
 		}
 		for(int j = 0; j < time.length; j++) {
-			time[j] = new ImageIcon("src/image/d" + j + ".gif");
+			time[j] = new ImageIcon(PATH + j + ".gif");
 		}
 	}
 	
-	public static ImageIcon imageIcon = new ImageIcon("src/image/icon.gif");
-	public static Icon icon = new ImageIcon("src/image/001.png");
-	public static Icon background = new ImageIcon("src/image/background.png");
-	public static Icon smile = new ImageIcon("src/image/face0.gif");
-	public static Icon click = new ImageIcon("src/image/face2.gif");
-	public static Icon upset = new ImageIcon("src/image/face03.gif");
-	public static Icon win = new ImageIcon("src/image/face4.gif");
-	public static Icon flag = new ImageIcon("src/image/flag.png");
-	public static Icon ask = new ImageIcon("src/image/ask.png");
-	public static Icon askpress = new ImageIcon("src/image/ask1.gif");
-	public static Icon black = new ImageIcon("src/image/mine.gif");
-	public static Icon bomb = new ImageIcon("src/image/bomb.png");
-	public static Icon hole = new ImageIcon("src/image/hole.gif");
-	public static Icon blood = new ImageIcon("src/image/blood.gif");
+
 
 	
 	
