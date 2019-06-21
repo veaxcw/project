@@ -1,5 +1,7 @@
 
-package com.chengw.mineClearance.frame;
+package com.chengw.mineClearance;
+
+import com.chengw.mineClearance.frame.Frame;
 
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
