@@ -1,16 +1,16 @@
+package com.chengw.mineClearance.dao;
+
 import javax.swing.JLabel;
+
 public class Mine extends JLabel{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
-	private boolean mineTag ;//�Ƿ�����
-	private boolean flagTag;//�Ƿ�������
-	private int rowx;//����
-	private int coly;//����
-	private int countAround;//��Χ�׵�����
-	private int leftClickCount;//�������
+	private boolean mineTag ;
+	private boolean flagTag;
+	private int rowx;
+	private int coly;
+	private int countAround;
+	private int leftClickCount;
 	private int rightClickCount;
 	public Mine(int x,int y) {
 		this.rowx = x;

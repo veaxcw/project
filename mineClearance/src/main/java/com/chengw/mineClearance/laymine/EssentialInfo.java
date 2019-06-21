@@ -1,3 +1,6 @@
+
+package com.chengw.mineClearance.laymine;
+
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
@@ -6,7 +9,7 @@ public class EssentialInfo {
 	public static int allcol = 9;
 	public static int allrow = 9;
 	public static int timecount = 0;
-	public static int bombCount = allcount;//�Ѿ�ɨ�����˵��׵�����
+	public static int bombCount = allcount;
 	
 	public static boolean isStart = false;
 	public static boolean isHole = false;
@@ -23,7 +26,7 @@ public class EssentialInfo {
 		}
 	}
 	
-	public static ImageIcon imageIcon = new ImageIcon("src/image/icon.gif");//�׵ı�־
+	public static ImageIcon imageIcon = new ImageIcon("src/image/icon.gif");
 	public static Icon icon = new ImageIcon("src/image/001.png");
 	public static Icon background = new ImageIcon("src/image/background.png");
 	public static Icon smile = new ImageIcon("src/image/face0.gif");

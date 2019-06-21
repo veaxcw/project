@@ -1,6 +1,12 @@
+
+package com.chengw.mineClearance.frame;
+
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
+/**
+ * @author chengw
+ */
 public class Start {
 
 	public static void main(String[] args) {

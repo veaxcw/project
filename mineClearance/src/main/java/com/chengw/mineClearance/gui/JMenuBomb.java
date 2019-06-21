@@ -1,10 +1,15 @@
+
+package com.chengw.mineClearance.gui;
+
+import com.chengw.mineClearance.frame.Frame;
+import com.chengw.mineClearance.laymine.EssentialInfo;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 import javax.swing.*;
 
-import frame.Frame;
-import laymine.EssentialInfo;
+
 
 public class JMenuBomb extends JMenuBar{
 
@@ -29,14 +34,16 @@ public class JMenuBomb extends JMenuBar{
 	}
 
 	private void init() {
-		menu.setMnemonic('G');//设置快捷键
+		//设置快捷键
+		menu.setMnemonic('G');
 		menu.setMnemonic('h');
-		menu.add(start);//开始游戏
+		//开始游戏
+		menu.add(start);
 		
 		
 		start.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.restartGame();//������Ϸ
+				frame.restartGame();
 			}
 		});
 		menu.addSeparator();//添加分割线

@@ -1,53 +1,54 @@
+
+package com.chengw.mineClearance.listener;
+
+import com.chengw.mineClearance.dao.Mine;
+import com.chengw.mineClearance.frame.Frame;
+import com.chengw.mineClearance.laymine.EssentialInfo;
+import com.chengw.mineClearance.laymine.Rule;
+
 import java.awt.event.InputEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import Frame;
-import JPanelBomb;
-import EssentialInfo;
-import Rule;
-import Mine;
+
 
 public class MyListener implements MouseListener{
     Mine[][] mines;
     Frame frame;
     private boolean isDoubleClick = false;
-    public MyListener(Mine[][] mines,Frame frame) {//��mines[][]������׵�ַ��������
+    public MyListener(Mine[][] mines,Frame frame) {
     	this.mines = mines;
     	this.frame = frame;
     }
     
- 	@Override
 	public void mouseClicked(MouseEvent arg0) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void mouseEntered(MouseEvent arg0) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void mouseExited(MouseEvent arg0) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void mousePressed(MouseEvent arg0) {
-		Mine mine = (Mine)arg0.getSource();//��ȡ�¼��ķ����ߣ�������ǿ��ת����Mine����,������ǰλ�õ������Ϊ
+		Mine mine = (Mine)arg0.getSource();
 		int row = mine.getRowx();
 		int col = mine.getColy();
 		Rule rule = new Rule(mines,frame);
 		rule.IsWin();//��Ӯ��û
-		if(arg0.getModifiers() == InputEvent.BUTTON1_MASK && (mine.isMineTag() == true) ){//�������
+		if(arg0.getModifiers() == InputEvent.BUTTON1_MASK && (mine.isMineTag() == true) ){
 			rule.IsFail();
-		}else if((arg0.getModifiers() == InputEvent.BUTTON1_MASK) && mine.isFlagTag() == false) {//����������������û�б��Ϊ��
-			if(rule.CountAround(row, col) == 0)
-				rule.MineField_auto_opening(row, col);;//�������Զ�����			
-			}else if((arg0.getModifiers() == InputEvent.BUTTON3_MASK&&mine.getRightClickCount() == 0)){//������һ�,���ǵ�һ�ε���
+		}else if((arg0.getModifiers() == InputEvent.BUTTON1_MASK) && mine.isFlagTag() == false) {
+			if(rule.CountAround(row, col) == 0) {
+				rule.MineField_auto_opening(row, col);
+			}
+			}else if((arg0.getModifiers() == InputEvent.BUTTON3_MASK&&mine.getRightClickCount() == 0)){
 					mine.setIcon(EssentialInfo.flag);
 					mine.setFlagTag(true);
 					EssentialInfo.bombCount--;
@@ -67,7 +68,6 @@ public class MyListener implements MouseListener{
 			
 
 
-	@Override
 	public void mouseReleased(MouseEvent arg0) {
 		// TODO Auto-generated method stub
 		

@@ -1,6 +1,9 @@
-import Mine;
-import Frame;
-import JPanelBomb;
+
+package com.chengw.mineClearance.laymine;
+
+import com.chengw.mineClearance.dao.Mine;
+import com.chengw.mineClearance.frame.Frame;
+import com.chengw.mineClearance.gui.JPanelBomb;
 
 public class Rule {
 	private Mine[][] mines;
@@ -42,20 +45,23 @@ public class Rule {
 	}
 	public int CountAround(int row,int col) {
 		int count = 0;//��Χ�˸��������׵�����
-		for(int x = Math.max(0, row-1);x < Math.min(EssentialInfo.allrow ,row + 2);x++) 
-			for(int y = Math.max(0,col-1);y < Math.min(EssentialInfo.allcol, col + 2);y++) 
-				if(mines[x][y].isMineTag() == true) 
+		for(int x = Math.max(0, row-1);x < Math.min(EssentialInfo.allrow ,row + 2);x++) {
+			for(int y = Math.max(0,col-1);y < Math.min(EssentialInfo.allcol, col + 2);y++) {
+				if(mines[x][y].isMineTag() == true) {
 					count++;
-		if(count != 0)
-			mines[row][col].setIcon(EssentialInfo.num[count]);	
-		else if(count == 0)
+				}
+			}
+		}
+		if(count != 0) {
+			mines[row][col].setIcon(EssentialInfo.num[count]);
+		} else if(count == 0)
 			mines[row][col].setIcon(EssentialInfo.background);
 		return count;
 	}
 	
-	public void MineField_auto_opening(int row,int col){//�ݹ�ʵ�ִ���������
+	public void MineField_auto_opening(int row,int col){
 		mines[row][col].setLeftClickCount(1);
-		for(int x = Math.max(0, row-1);x < Math.min(EssentialInfo.allrow,row + 2);x++) 
+		for(int x = Math.max(0, row-1);x < Math.min(EssentialInfo.allrow,row + 2);x++) {
 			for(int y = Math.max(0,col-1);y < Math.min(EssentialInfo.allcol, col + 2);y++) {
 				if(CountAround(x,y) == 0) {
 				if(mines[x][y].isMineTag() == false && mines[x][y].getLeftClickCount() == 0) {
@@ -64,6 +70,7 @@ public class Rule {
 					}
 				}
 			}
+		}
 	}
 	
 	
