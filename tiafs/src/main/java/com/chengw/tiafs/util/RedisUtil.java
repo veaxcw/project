@@ -138,12 +138,12 @@ public final class RedisUtil {
      * @param delta
      * @return
      */
-    public long decr(String key,long delta){
-        if(delta < 0){
-            throw  new RuntimeException("递减因子必须大于零");
-        }
-        return redisTemplate.opsForValue().decrement(key, delta);
-    }
+//    public long decr(String key,long delta){
+//        if(delta < 0){
+//            throw  new RuntimeException("递减因子必须大于零");
+//        }
+//        return redisTemplate.opsForValue().decrement(key, delta);
+//    }
 
     /********Map********************************************/
     /**HashGet
