@@ -24,46 +24,16 @@ import java.io.IOException;
 @Controller
 @RequestMapping(value = "/api")
 @Slf4j
-public class LoginController {
+public class CommonController {
 
     @Resource
     private TeacherService teacherService;
-
-    @RequestMapping(value = "/signin")
-    public void siginin(HttpServletRequest request, HttpServletResponse response){
-        log.info("开始登录");
-
-        RequestUtil.sendRedirect(response,"/signin.html");
-    }
 
     @RequestMapping(value = "/index")
     public void index(HttpServletRequest request, HttpServletResponse response){
         log.info("显示主页");
 
         RequestUtil.sendRedirect(response,"/index.html");
-    }
-
-    @RequestMapping(value = "/login")
-    public void login(@RequestBody LoginEntity loginfo,HttpServletRequest request, HttpServletResponse response){
-        log.info("验证登录");
-
-        HttpSession session = request.getSession();
-        String verCode = session.getAttribute("verCode").toString();
-
-        if(verCode.equalsIgnoreCase(loginfo.getCheckCode())){
-            session.setAttribute("user",loginfo);
-            log.info("登录成功");
-            /**RequestUtil.sendRedirect(response,"/index.html");**/
-            try {
-                request.getRequestDispatcher("/api/index").forward(request,response);
-            } catch (ServletException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-
     }
 
     @RequestMapping(value = "/checkCode",method = RequestMethod.GET)

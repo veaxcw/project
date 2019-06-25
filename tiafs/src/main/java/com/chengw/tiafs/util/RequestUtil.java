@@ -12,6 +12,7 @@ public class RequestUtil {
 
         try {
             response.sendRedirect(rUrl);
+            return;
         } catch (IOException var4) {
             var4.printStackTrace();
         }

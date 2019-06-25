@@ -9,6 +9,7 @@ import java.util.List;
 //@Repository
 @Mapper
 public interface ResearchDAO {
+
     List<Research> findByUserCode(@Param("userCode") String userCode);//根据UserCode查找
 
     List<Research> findByRid(@Param("rid") int rid);

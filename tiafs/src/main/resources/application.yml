@@ -5,7 +5,7 @@ server:
 
 spring:
   application:
-    name: tiafs
+    name: teacher-annual-info-report-system
 
 
   datasource:
@@ -24,10 +24,11 @@ spring:
         max-idle: 10
         min-idle: 0
     timeout: 1000
+
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8001/eureka/
+      defaultZone: http://localhost:8000/eureka/
   instance:
     prefer-ip-address: true
     instance-id: ${spring.application.name}:${server.port}

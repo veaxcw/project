@@ -2,16 +2,19 @@ package com.chengw.tiafs.controller;
 
 import com.chengw.tiafs.po.Teacher;
 import com.chengw.tiafs.services.TeacherService;
+import com.chengw.tiafs.vo.LoginEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.math.BigInteger;
 import java.util.List;
 
 @Controller
-@RequestMapping("/teacherServlet")
+@RequestMapping("/api")
 public class TeacherController {
 
     @Resource
@@ -25,6 +28,14 @@ public class TeacherController {
         request.setAttribute("teachers",teachers);
 
       return "teaching/teacher";
+    }
+
+    @RequestMapping("/teacherInfo")
+    @ResponseBody
+    public String teacherInfo(HttpServletRequest request){
+        HttpSession session = request.getSession();
+        LoginEntity user = (LoginEntity)session.getAttribute("user");
+        return user.toString();
     }
 
     public void test(){

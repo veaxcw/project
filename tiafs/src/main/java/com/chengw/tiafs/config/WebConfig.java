@@ -12,11 +12,24 @@ import org.springframework.web.servlet.config.annotation.*;
 @Configuration
 public class WebConfig extends WebMvcConfigurationSupport {
 
+
+    public static final String[] EXCLUDE = {
+            "/Styles/**","/**/**.js",
+            "/*.ico","/img/**",
+            "/images/**'",
+            "/sec",
+            "/api/login","/api/signin",
+            "/api/checkCode",
+            "/error",
+            "/signin.html"
+    };
+
     @Override
     public  void addResourceHandlers(ResourceHandlerRegistry registry) {
 
 
         registry.addResourceHandler("/**").addResourceLocations("classpath:/static/");
+
 
         super.addResourceHandlers(registry);
     }
@@ -32,14 +45,10 @@ public class WebConfig extends WebMvcConfigurationSupport {
          * excludePathPatterns 排除拦截器规则
          * ***/
 
-        registry.addInterceptor(authInterceptor).addPathPatterns("/**").excludePathPatterns("/sec","/api/login","/api/signin","/signin.html",
-                "/Styles/**","/Scripts/**","/api/checkCode","/favicon.ico","/images/**","/img/**","/public/**","/error");
+        registry.addInterceptor(authInterceptor).addPathPatterns("/**").excludePathPatterns(EXCLUDE);
         super.addInterceptors(registry);
     }
 
-    @Override
-    protected void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/signin").setViewName("signin");
-        super.addViewControllers(registry);
-    }
+
+
 }
