@@ -1,6 +1,6 @@
 package com.chengw.tiafs.controller;
 
-import com.chengw.tiafs.po.Teacher;
+import com.chengw.tiafs.po.TeacherBean;
 import com.chengw.tiafs.services.TeacherService;
 import com.chengw.tiafs.vo.LoginEntity;
 import org.springframework.stereotype.Controller;
@@ -19,13 +19,13 @@ public class TeacherController {
 
     @Resource
     private TeacherService teacherService;
-    List<Teacher> teachers = null;
+    List<TeacherBean> teacherBeans = null;
 
     @RequestMapping("/findByCondition")
     public String findByCondition(HttpServletRequest request){
 
-        teachers = teacherService.getAllTeacher();
-        request.setAttribute("teachers",teachers);
+        teacherBeans = teacherService.getAllTeacher();
+        request.setAttribute("teacherBeans", teacherBeans);
 
       return "teaching/teacher";
     }

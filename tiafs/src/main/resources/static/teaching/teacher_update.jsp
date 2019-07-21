@@ -23,20 +23,20 @@
             	<tr>
                 	<td width="15%">教师编号<font color="FF0000">*</font></td>
                 	<td width="500">
-                    	<input id="usercode" name="usercode" type="text" value="${teacher.usercode}" readonly="readonly"/>
+                    	<input id="usercode" name="usercode" type="text" value="${teacherBean.usercode}" readonly="readonly"/>
                 	</td>
                 	<td width="500">登陆密码<font color="FF0000">*</font></td>
                 	<td width="500">
-                    	<input id="password" name="password" type="text" value="${teacher.password }"/></td>
+                    	<input id="password" name="password" type="text" value="${teacherBean.password }"/></td>
             	</tr>
             	<tr>
                 	<td>教师姓名<font color="FF0000">*</font></td>
                 	<td>
-                    	<input id="username" name="username" type="text"  value="${teacher.username }"/></td>
+                    	<input id="username" name="username" type="text"  value="${teacherBean.username }"/></td>
                 	<td>性别<font color="FF0000">*</font></td>
                 	<td>
                 		<c:choose>
-                			<c:when test="${teacher.sex}=='男'">
+                			<c:when test="${teacherBean.sex}=='男'">
                 				<input id="sex"  name="sex" value="男" type="radio" checked="checked"/>男
 								<input id="sex"  name="sex" value="女" type="radio" />女
                 			</c:when>
@@ -51,21 +51,21 @@
             	<tr>
                 	<td>年龄<font color="FF0000">*</font></td>
                 	<td>
-                    	<input id="age" name="age" value="${teacher.age }" type="text" />
+                    	<input id="age" name="age" value="${teacherBean.age }" type="text" />
                 	</td>
                 	<td>职位<font color="FF0000">*</font></td>
                 	<td>
-                    	<input id="depart" name="depart" type="text" value="${teacher.depart }"/></td>
+                    	<input id="depart" name="depart" type="text" value="${teacherBean.depart }"/></td>
             	</tr>
             
             	<tr>
                 	<td width="15%">毕业院校<font color="FF0000">*</font></td>
                 	<td>
-                    	<input id="graduschool" name="graduschool" type="text" value="${teacher.graduschool }"/>
+                    	<input id="graduschool" name="graduschool" type="text" value="${teacherBean.graduschool }"/>
                 	</td>
                 	<td width="500">学历学位</td>
                 	<td width="500">
-                    	<input id="curriculum" name="curriculum" type="text" value="${teacher.curriculum }"/>
+                    	<input id="curriculum" name="curriculum" type="text" value="${teacherBean.curriculum }"/>
                 	</td>
             	</tr>
            

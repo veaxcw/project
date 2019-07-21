@@ -127,10 +127,10 @@ CREATE TABLE `researchresult` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `teacher`
+-- Table structure for `teacherBean`
 -- ----------------------------
-DROP TABLE IF EXISTS `teacher`;
-CREATE TABLE `teacher` (
+DROP TABLE IF EXISTS `teacherBean`;
+CREATE TABLE `teacherBean` (
   `teacherid` INT(11) NOT NULL AUTO_INCREMENT,
   `usercode` VARCHAR(2000) DEFAULT '',
   `username` VARCHAR(2000) DEFAULT '',
@@ -146,6 +146,6 @@ CREATE TABLE `teacher` (
 ) ENGINE=INNODB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of teacher`Article`
+-- Records of teacherBean`Article`
 -- ----------------------------
-INSERT INTO `teacher` VALUES ('1', '1', 'admin', '女', '5', 'java工程师', 'huanweiqiji.com', '本科', '111111', '0', '1');
+INSERT INTO `teacherBean` VALUES ('1', '1', 'admin', '女', '5', 'java工程师', 'huanweiqiji.com', '本科', '111111', '0', '1');

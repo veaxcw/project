@@ -1,7 +1,7 @@
 package com.chengw.tiafs.controller;
 
 import com.chengw.tiafs.po.Researchresult;
-import com.chengw.tiafs.po.Teacher;
+import com.chengw.tiafs.po.TeacherBean;
 import com.chengw.tiafs.services.ResearchResultService;
 import com.chengw.tiafs.util.CommonUtils;
 import org.springframework.stereotype.Controller;
@@ -91,9 +91,9 @@ public class ResearchResultController {//这部分没这么写注释，基本上
         session.removeAttribute("researchResults");//移除旧的researchResults
 
 
-        Teacher teacher = (Teacher)session.getAttribute("teacher");
+        TeacherBean teacherBean = (TeacherBean)session.getAttribute("teacherBean");
 
-        researchResults = researchResultService.findByUserCode(teacher.getUserCode());
+        researchResults = researchResultService.findByUserCode(teacherBean.getUserCode());
         session.setAttribute("researchResults",researchResults);//添加新的
 
     }

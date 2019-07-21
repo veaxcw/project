@@ -1,36 +1,55 @@
 package com.chengw.tiafs.services;
 
-import com.chengw.tiafs.dao.TeacherDAO;
-import com.chengw.tiafs.po.Teacher;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.chengw.tiafs.mapper.TeacherMapper;
+import com.chengw.tiafs.po.TeacherBean;
 import com.chengw.tiafs.vo.LoginEntity;
+import com.chengw.tiafs.vo.TeacherEntity;
 import lombok.extern.slf4j.Slf4j;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Slf4j
 public class AuthService {
 
     @Resource
-    private TeacherDAO teacherDAO;
+    private TeacherMapper teacherMapper;
+
+    @Autowired
+    private RedisTemplate<String,String> redisTemplate;
 
     public boolean check(LoginEntity userInfo){
-        return true;
+
+        String o = redisTemplate.opsForValue().get("teacherInfo");
+        List<TeacherEntity> teacherEntities = JSON.parseArray(o, TeacherEntity.class);
+
+        if(teacherEntities == null || teacherEntities.size() == 0){
+            List<TeacherBean> allTeacher = teacherMapper.getAllTeacher();
+            if(allTeacher != null || allTeacher.size() != 0){
+                List<TeacherEntity> collect = allTeacher.stream().map(b -> new TeacherEntity().from(b)).collect(Collectors.toList());
+                String s = JSON.toJSONString(collect);
+                redisTemplate.opsForValue().set("teacherInfo",s);
+            }
+        }
+        for(TeacherEntity t:teacherEntities){
+            boolean equals = userInfo.equals(t);
+            if(!equals){
+                continue;
+            }else {
+                return true;
+            }
+        }
+
+        return false;
     }
 
 
-//    //todo
-//    @Override
-//    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-//
-//        log.info("当前用户：",s);
-//
-//        //Teacher teacherInfo = teacherDAO.getTeacherByUsername(s);
-//
-//        User user = new User(s,"123456", AuthorityUtils.commaSeparatedStringToAuthorityList("admin"));
-//
-//        return user;
-//    }
 }

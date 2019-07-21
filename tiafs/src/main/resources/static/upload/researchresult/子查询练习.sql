@@ -6,7 +6,7 @@ sname VARCHAR(20),
 sage INT(2),
 ssex VARCHAR(5)
 );
-CREATE TABLE teacher(
+CREATE TABLE teacherBean(
 tno VARCHAR(10) PRIMARY KEY,
 tname VARCHAR(20)
 );
@@ -26,7 +26,7 @@ CONSTRAINT pk_sc PRIMARY KEY (sno,cno)
 DESC student;
 DESC sc;
 DESC course;
-DESC teacher;
+DESC teacherBean;
 
 INSERT INTO student VALUES ('s001','张三',23,'男');
 INSERT INTO student VALUES ('s002','李四',23,'男');
@@ -40,9 +40,9 @@ INSERT INTO student VALUES ('s009','陈萧晓',23,'女');
 INSERT INTO student VALUES ('s010','陈美',22,'女');
 COMMIT;
 /******************初始化教师表***********************/
-INSERT INTO teacher VALUES ('t001', '刘阳');
-INSERT INTO teacher VALUES ('t002', '谌燕');
-INSERT INTO teacher VALUES ('t003', '胡明星');
+INSERT INTO teacherBean VALUES ('t001', '刘阳');
+INSERT INTO teacherBean VALUES ('t002', '谌燕');
+INSERT INTO teacherBean VALUES ('t003', '胡明星');
 COMMIT;
 /***************初始化课程表****************************/
 INSERT INTO course VALUES ('c001','J2SE','t002');
@@ -70,7 +70,7 @@ INSERT INTO sc VALUES ('s001','c003',59);
 SELECT * FROM student;
 SELECT * FROM sc;
 SELECT * FROM course;
-SELECT * FROM teacher;
+SELECT * FROM teacherBean;
 
 
 1.查询男生、女生人数;

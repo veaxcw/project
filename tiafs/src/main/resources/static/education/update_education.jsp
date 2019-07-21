@@ -30,7 +30,7 @@
     	<div class="alert alert-info">当前位置<b class="tip"></b>教学管理<b class="tip"></b>修改获奖信息</div>
 
     	<form method="post" action="../educationServlet/update.do">
-    	<input type="hidden" name="usercode" value="${sessionScope.teacher.usercode }"/>
+    	<input type="hidden" name="usercode" value="${sessionScope.teacherBean.usercode }"/>
     	<input type="hidden" name="eduid" value="${education.eduid}"/>
     	<table class="table table-striped table-bordered table-condensed list">
         	<tbody>

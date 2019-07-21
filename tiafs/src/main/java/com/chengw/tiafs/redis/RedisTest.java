@@ -1,4 +1,4 @@
-package com.chengw.tiafs.test;
+package com.chengw.tiafs.redis;
 
 import com.chengw.tiafs.po.Article;
 import com.chengw.tiafs.po.Role;

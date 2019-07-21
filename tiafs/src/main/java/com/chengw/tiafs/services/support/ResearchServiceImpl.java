@@ -1,7 +1,7 @@
 package com.chengw.tiafs.services.support;
 
 
-import com.chengw.tiafs.dao.ResearchDAO;
+import com.chengw.tiafs.mapper.ResearchDAO;
 import com.chengw.tiafs.po.Research;
 import com.chengw.tiafs.services.ResearchService;
 import org.springframework.stereotype.Service;

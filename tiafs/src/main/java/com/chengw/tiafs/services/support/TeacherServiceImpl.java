@@ -1,7 +1,7 @@
 package com.chengw.tiafs.services.support;
 
-import com.chengw.tiafs.dao.TeacherDAO;
-import com.chengw.tiafs.po.Teacher;
+import com.chengw.tiafs.mapper.TeacherMapper;
+import com.chengw.tiafs.po.TeacherBean;
 import com.chengw.tiafs.services.TeacherService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,15 +14,15 @@ import java.util.List;
 public class TeacherServiceImpl implements TeacherService {
 
     @Resource
-    private TeacherDAO teacherDAO;
+    private TeacherMapper teacherMapper;
 
 
-    public Teacher getTeacherByUsername(String username) {
-        return teacherDAO.getTeacherByUsername(username);
+    public TeacherBean getTeacherByUsername(String username) {
+        return teacherMapper.getTeacherByUsername(username);
     }
 
-    public List<Teacher> getAllTeacher() {
-        return teacherDAO.getAllTeacher();
+    public List<TeacherBean> getAllTeacher() {
+        return teacherMapper.getAllTeacher();
     }
 
 

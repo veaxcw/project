@@ -2,7 +2,7 @@ package com.chengw.tiafs.controller;
 
 
 import com.chengw.tiafs.po.Research;
-import com.chengw.tiafs.po.Teacher;
+import com.chengw.tiafs.po.TeacherBean;
 import com.chengw.tiafs.services.ResearchService;
 import com.chengw.tiafs.util.CommonUtils;
 import org.springframework.stereotype.Controller;
@@ -106,9 +106,9 @@ public class ResearchController {
         session.removeAttribute("researches");//移除旧的researches
 
 
-        Teacher teacher = (Teacher)session.getAttribute("teacher");
+        TeacherBean teacherBean = (TeacherBean)session.getAttribute("teacherBean");
 
-        researches = researchService.findByUserCode(teacher.getUserCode());
+        researches = researchService.findByUserCode(teacherBean.getUserCode());
         session.setAttribute("researches",researches);//添加新的
 
     }

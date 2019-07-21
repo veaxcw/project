@@ -1,14 +1,14 @@
 package com.chengw.tiafs.services;
 
 
-import com.chengw.tiafs.po.Teacher;
+import com.chengw.tiafs.po.TeacherBean;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
 public interface TeacherService {
-    Teacher getTeacherByUsername(@Param("username") String username);
-    List<Teacher> getAllTeacher();
+    TeacherBean getTeacherByUsername(@Param("username") String username);
+    List<TeacherBean> getAllTeacher();
 
 
 }

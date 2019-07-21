@@ -30,7 +30,7 @@
     	<div class="alert alert-info">当前位置<b class="tip"></b>科研管理<b class="tip"></b>添加科研成果</div>
 
     	<form method="post" action="${pageContext.request.contextPath}/researchResultServlet/save" enctype="multipart/form-data">
-    	<input type="hidden" name="usercode" value="${sessionScope.teacher.usercode }"/>
+    	<input type="hidden" name="usercode" value="${sessionScope.teacherBean.usercode }"/>
     	<table class="table table-striped table-bordered table-condensed list">
         	<tbody>
 

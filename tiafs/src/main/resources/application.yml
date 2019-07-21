@@ -25,6 +25,7 @@ spring:
         min-idle: 0
     timeout: 1000
 
+
 eureka:
   client:
     service-url:
@@ -32,3 +33,5 @@ eureka:
   instance:
     prefer-ip-address: true
     instance-id: ${spring.application.name}:${server.port}
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
