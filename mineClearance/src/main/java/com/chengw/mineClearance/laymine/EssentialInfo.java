@@ -10,7 +10,7 @@ import java.nio.file.Path;
  */
 public class EssentialInfo {
 
-    private static final String PATH = "resource/image";
+    private static final String PATH = "F:\\chengw\\project\\Project\\mineClearance\\src\\main\\java\\com\\chengw\\mineClearance\\image";
 
     public static ImageIcon imageIcon = new ImageIcon(PATH + "/icon.gif");
     public static Icon icon = new ImageIcon(PATH +"/001.png");

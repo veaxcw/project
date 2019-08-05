@@ -6,12 +6,12 @@
 
 @font-face {
     font-family: fzqt;
-    src: url("font/fzqt.ttf");
+    src: url("../font/fzqt.ttf");
 }
 
 @font-face {
     font-family: vani;
-    src: url("font/Vani.ttf");
+    src: url("../font/Vani.ttf");
 }
 
 .loginMain {
