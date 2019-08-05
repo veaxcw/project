@@ -24,12 +24,12 @@ use report;
 -- ----------------------------
 DROP TABLE IF EXISTS `article`;
 CREATE TABLE `article` (
-  `aid` INT(11) NOT NULL AUTO_INCREMENT,
-  `aname` VARCHAR(2000) DEFAULT '',
-  `apath` VARCHAR(2000) DEFAULT '',
-  `publishdate` VARCHAR(2000) DEFAULT '',
-  `publishreader` VARCHAR(2000) DEFAULT '',
-  `uploaddate` VARCHAR(2000) DEFAULT '',
+  `a_id` INT(11) NOT NULL AUTO_INCREMENT,
+  `a_name` VARCHAR(2000) DEFAULT '',
+  `a_path` VARCHAR(2000) DEFAULT '',
+  `publish_date` VARCHAR(2000) DEFAULT '',
+  `publish_reader` VARCHAR(2000) DEFAULT '',
+  `upload_date` VARCHAR(2000) DEFAULT '',
   `summary` VARCHAR(2000) DEFAULT '',
   `usercode` VARCHAR(2000) DEFAULT '',
   PRIMARY KEY (`aid`)
@@ -45,15 +45,15 @@ INSERT INTO `article` VALUES ('1', 'admin', '/report_servlet/upload/Article/219.
 -- ----------------------------
 DROP TABLE IF EXISTS `education`;
 CREATE TABLE `education` (
-  `eduid` INT(11) NOT NULL AUTO_INCREMENT,
-  `eduname` VARCHAR(2000) DEFAULT '',
-  `edudate` VARCHAR(2000) DEFAULT '',
-  `edustudent` VARCHAR(2000) DEFAULT '',
-  `edutime` VARCHAR(2000) DEFAULT '',
-  `workload` VARCHAR(2000) DEFAULT '',
+  `edu_id` INT(11) NOT NULL AUTO_INCREMENT,
+  `edu_name` VARCHAR(2000) DEFAULT '',
+  `edu_date` VARCHAR(2000) DEFAULT '',
+  `edu_student` VARCHAR(2000) DEFAULT '',
+  `edu_time` VARCHAR(2000) DEFAULT '',
+  `work_load` VARCHAR(2000) DEFAULT '',
   `mass` VARCHAR(2000) DEFAULT '',
-  `eduscore` VARCHAR(2000) DEFAULT '',
-  `usercode` VARCHAR(2000) DEFAULT '',
+  `edu_score` VARCHAR(2000) DEFAULT '',
+  `user_code` VARCHAR(2000) DEFAULT '',
   PRIMARY KEY (`eduid`)
 ) ENGINE=INNODB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
@@ -67,13 +67,13 @@ INSERT INTO `education` VALUES ('1', 'admin', '2018-3-15', '20', '4', '4', '4', 
 -- ----------------------------
 DROP TABLE IF EXISTS `prize`;
 CREATE TABLE `prize` (
-  `pid` INT(11) NOT NULL AUTO_INCREMENT,
-  `pname` VARCHAR(2000) DEFAULT '',
-  `pdate` VARCHAR(2000) DEFAULT '',
-  `ppath` VARCHAR(2000) DEFAULT '',
+  `p_id` INT(11) NOT NULL AUTO_INCREMENT,
+  `p_name` VARCHAR(2000) DEFAULT '',
+  `p_date` VARCHAR(2000) DEFAULT '',
+  `p_path` VARCHAR(2000) DEFAULT '',
   `diploma` VARCHAR(2000) DEFAULT '',
-  `pdepart` VARCHAR(2000) DEFAULT '',
-  `uploaddate` VARCHAR(2000) DEFAULT '',
+  `p_depart` VARCHAR(2000) DEFAULT '',
+  `upload_date` VARCHAR(2000) DEFAULT '',
   `summary` VARCHAR(2000) DEFAULT '',
   `usercode` VARCHAR(2000) DEFAULT '',
   PRIMARY KEY (`pid`)
@@ -89,12 +89,12 @@ INSERT INTO `prize` VALUES ('1', 'admin', '2018-03-21', '/report_servlet/upload/
 -- ----------------------------
 DROP TABLE IF EXISTS `research`;
 CREATE TABLE `research` (
-  `rid` INT(11) NOT NULL AUTO_INCREMENT,
-  `rname` VARCHAR(2000) DEFAULT '',
-  `rpath` VARCHAR(2000) DEFAULT '',
-  `publishdate` VARCHAR(2000) DEFAULT '',
-  `publishreader` VARCHAR(2000) DEFAULT '',
-  `uploaddate` VARCHAR(2000) DEFAULT '',
+  `r_id` INT(11) NOT NULL AUTO_INCREMENT,
+  `r_name` VARCHAR(2000) DEFAULT '',
+  `r_path` VARCHAR(2000) DEFAULT '',
+  `publish_date` VARCHAR(2000) DEFAULT '',
+  `publish_reader` VARCHAR(2000) DEFAULT '',
+  `upload_date` VARCHAR(2000) DEFAULT '',
   `summary` VARCHAR(2000) DEFAULT '',
   `funds` VARCHAR(2000) DEFAULT '',
   `usercode` VARCHAR(2000) DEFAULT '',
@@ -110,15 +110,16 @@ INSERT INTO `research` VALUES ('1', 'admin', '/report_servlet/upload/research/85
 -- Table structure for `researchresult`
 -- ----------------------------
 DROP TABLE IF EXISTS `researchresult`;
-CREATE TABLE `researchresult` (
-  `rrid` INT(11) NOT NULL AUTO_INCREMENT,
-  `rrname` VARCHAR(2000) DEFAULT '',
-  `rrpath` VARCHAR(2000) DEFAULT '',
-  `publishdate` VARCHAR(2000) DEFAULT '',
-  `publishreader` VARCHAR(2000) DEFAULT '',
-  `uploaddate` VARCHAR(2000) DEFAULT '',
+CREATE TABLE `research_result` (
+  `r_rid` INT(11) NOT NULL AUTO_INCREMENT,
+  `rr_name` VARCHAR(2000) DEFAULT '',
+  `rr_path` VARCHAR(2000) DEFAULT '',
+  `publish_date` VARCHAR(2000) DEFAULT '',
+  `publish_reader` VARCHAR(2000) DEFAULT '',
+  `upload_date` VARCHAR(2000) DEFAULT '',
   `summary` VARCHAR(2000) DEFAULT '',
   `usercode` VARCHAR(2000) DEFAULT '',
+
   PRIMARY KEY (`rrid`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8;
 
@@ -131,16 +132,16 @@ CREATE TABLE `researchresult` (
 -- ----------------------------
 DROP TABLE IF EXISTS `teacherBean`;
 CREATE TABLE `teacherBean` (
-  `teacherid` INT(11) NOT NULL AUTO_INCREMENT,
+  `teacher_id` INT(11) NOT NULL AUTO_INCREMENT,
   `usercode` VARCHAR(2000) DEFAULT '',
   `username` VARCHAR(2000) DEFAULT '',
   `sex` VARCHAR(2000) DEFAULT '',
   `age` INT(11) DEFAULT '0',
   `depart` VARCHAR(2000) DEFAULT '',
-  `graduschool` VARCHAR(2000) DEFAULT '',
+  `graduate_school` VARCHAR(2000) DEFAULT '',
   `curriculum` VARCHAR(2000) DEFAULT '',
   `password` VARCHAR(2000) DEFAULT '',
-  `roleid` INT(11) DEFAULT '0',
+  `role_id` INT(11) DEFAULT '0',
   `status` INT(11) DEFAULT '0',
   PRIMARY KEY (`teacherid`)
 ) ENGINE=INNODB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
