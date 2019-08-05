@@ -12,8 +12,11 @@
       <list>
         <option value="$PROJECT_DIR$/mineClearance/pom.xml" />
         <option value="$PROJECT_DIR$/teacherInfoAnnuaFillingSystem/pom.xml" />
-        <option value="$PROJECT_DIR$/bilibiliCopy/pom.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/tiafs/pom.xml" />
+        <option value="$PROJECT_DIR$/shoppingManagementSytem/pom.xml" />
+        <option value="$PROJECT_DIR$/cloud/pom.xml" />
+        <option value="$PROJECT_DIR$/cloud/cloud-registry/pom.xml" />
       </list>
     </option>
   </component>
