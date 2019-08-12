@@ -18,4 +18,5 @@ public interface HelloRemote {
     @RequestMapping(value = "/tiafs/api/hello",method = RequestMethod.GET)
     String hello();
 
+
 }
