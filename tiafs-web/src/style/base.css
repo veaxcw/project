@@ -239,7 +239,7 @@ a.gray {
 
 .background{
   display: block;
-  background: url(../../static/img/cloud.jpg) repeat 50% 50%;
+  background: url(../../static/img/background.jpg) repeat 50% 50%;
   overflow: hidden;
   height: 1050px;
   margin: 0px;

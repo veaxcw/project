@@ -1,7 +1,7 @@
 package com.chengw.tiafs.services.support;
 
 import com.chengw.tiafs.mapper.TeacherMapper;
-import com.chengw.tiafs.po.TeacherBean;
+import com.chengw.tiafs.model.po.TeacherBean;
 import com.chengw.tiafs.services.TeacherService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

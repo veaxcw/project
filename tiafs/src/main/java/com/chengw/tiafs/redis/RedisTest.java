@@ -1,7 +1,7 @@
 package com.chengw.tiafs.redis;
 
-import com.chengw.tiafs.po.Article;
-import com.chengw.tiafs.po.Role;
+import com.chengw.tiafs.model.po.Article;
+import com.chengw.tiafs.model.po.Role;
 import com.chengw.tiafs.util.RedisUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;

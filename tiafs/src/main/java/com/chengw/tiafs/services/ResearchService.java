@@ -1,7 +1,7 @@
 package com.chengw.tiafs.services;
 
 
-import com.chengw.tiafs.po.Research;
+import com.chengw.tiafs.model.po.Research;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

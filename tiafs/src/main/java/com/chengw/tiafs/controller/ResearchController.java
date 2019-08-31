@@ -1,8 +1,8 @@
 package com.chengw.tiafs.controller;
 
 
-import com.chengw.tiafs.po.Research;
-import com.chengw.tiafs.po.TeacherBean;
+import com.chengw.tiafs.model.po.Research;
+import com.chengw.tiafs.model.po.TeacherBean;
 import com.chengw.tiafs.services.ResearchService;
 import com.chengw.tiafs.util.CommonUtils;
 import org.springframework.stereotype.Controller;

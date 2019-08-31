@@ -1,4 +1,4 @@
-package com.chengw.tiafs.vo;
+package com.chengw.tiafs.model.vo;
 
 
 import lombok.Getter;

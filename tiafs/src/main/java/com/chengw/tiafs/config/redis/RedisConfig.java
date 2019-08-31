@@ -1,4 +1,4 @@
-package com.chengw.tiafs.config;
+package com.chengw.tiafs.config.redis;
 
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;

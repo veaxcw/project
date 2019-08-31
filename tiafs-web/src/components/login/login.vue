@@ -1,36 +1,51 @@
+
 <template>
   <div class="background">
     <div id="clouds" class="stage"></div>
-    <div class="loginMain">
-    </div>
+    <div class="loginMain"></div>
     <div id="loginForm">
       <div class="row-fluid">
         <h1 class="title">学习用DemoProject</h1>
-        <p style="margin-bottom: 9px">
-          <label>帐&nbsp;&nbsp;&nbsp;&nbsp;号：<input type="text" name="username" id="username" /></label>
-        </p>
-        <p style="margin-bottom: 9px">
-          <label>密&nbsp;&nbsp;&nbsp;&nbsp;码：<input type="password" name="password" id="password" /></label>
-        </p>
-        <p style="margin-bottom: 9px">
-          <label>验证码：<input type="text" id="code" name="checkCode"/>
-            <img src="http://localhost:8889/tiafs/api/checkCode" alt="验证码" title="点击更换" id="identity" onclick="reloadImage()"/></label>
-        </p>
-
-        <p class="tip">&nbsp;</p>
-        <input type="button" value=" 登 录 " class="btn btn-primary btn-large login" onclick="Login()" />
-        &nbsp;&nbsp;&nbsp;<input type="reset" value=" 重 置 " class="btn btn-large" />
+        <el-form :model="loginForm" label-position="left" label-width="0pix">
+          <el-form-item >
+            <el-input v-model="loginForm.username" auto-complete="off" placeholder="账号"/>
+          </el-form-item>
+          <el-form-item >
+            <el-input v-model="loginForm.password" auto-complete="off" placeholder="账号"/>
+          </el-form-item>
+          <el-form-item >
+            <el-input v-model="loginForm.verifyCode" auto-complete="off" placeholder="验证码"/>
+          </el-form-item>
+          <el-form-item style="width:100%;">
+            <el-button type="primary" style="width:100%;" >登录</el-button>
+          </el-form-item>
+        </el-form>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+
+    import Sidentify from "../identify/identify"
     export default {
-        name: "login"
+        name: "login",
+        components:{
+          Sidentify
+        },
+        data(){
+          return{
+            loginForm:{
+              username:'',
+              password:'',
+              verifyCode:''
+            }
+          }
+        }
+
     }
 
-    import "src/scripts/chur.min";
+
 
     function reloadImage(){
       document.getElementById("identity").src="/tiafs/api/checkCode?ts=" + new Date().getDate();
@@ -71,8 +86,10 @@
 
 <style scoped>
 
-@import "../style/base.css";
-@import "../style/admin-all.css";
-@import "../style/bootstrap-responsive.min.css";
-@import "../style/login.css";
+
+
+@import "../../style/base.css";
+@import "../../style/admin-all.css";
+@import "../../style/bootstrap-responsive.min.css";
+@import "../../style/login.css";
 </style>

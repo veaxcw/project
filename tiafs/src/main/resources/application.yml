@@ -1,5 +1,5 @@
 server:
-  port: 8652
+  port: 8666
   servlet:
     context-path: /tiafs/
 
@@ -26,12 +26,13 @@ spring:
     timeout: 1000
 
 
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8000/eureka/
-  instance:
-    prefer-ip-address: true
-    instance-id: ${spring.application.name}:${server.port}
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8000/eureka/
+#  instance:
+#    prefer-ip-address: true
+#    instance-id: ${spring.application.name}:${server.port}
+
 mybatis:
   mapper-locations: classpath*:mapper/*.xml

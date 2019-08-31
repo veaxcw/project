@@ -1,9 +1,9 @@
-package com.chengw.tiafs.interceptor;
+package com.chengw.tiafs.config.security.interceptor;
 
 import com.alibaba.fastjson.JSONObject;
 import com.chengw.tiafs.common.UserInfo;
 import com.chengw.tiafs.util.RequestUtil;
-import com.chengw.tiafs.vo.LoginEntity;
+import com.chengw.tiafs.model.vo.LoginEntity;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;

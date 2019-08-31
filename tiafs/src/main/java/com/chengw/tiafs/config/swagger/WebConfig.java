@@ -1,7 +1,7 @@
 package com.chengw.tiafs.config.swagger;
 
 
-import com.chengw.tiafs.interceptor.AuthInterceptor;
+import com.chengw.tiafs.config.security.interceptor.AuthInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.*;

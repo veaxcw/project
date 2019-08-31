@@ -1,7 +1,7 @@
 package com.chengw.tiafs.services.support;
 
 import com.chengw.tiafs.mapper.ResearchResultDAO;
-import com.chengw.tiafs.po.Researchresult;
+import com.chengw.tiafs.model.po.Researchresult;
 import com.chengw.tiafs.services.ResearchResultService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

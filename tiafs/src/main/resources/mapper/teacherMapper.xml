@@ -4,15 +4,15 @@
 <mapper namespace="com.chengw.tiafs.mapper.TeacherMapper">
 
 
-    <select id="getTeacherByUserCode" resultType="com.chengw.tiafs.po.TeacherBean">
+    <select id="getTeacherByUserCode" resultType="com.chengw.tiafs.model.po.TeacherBean">
         select teacher_id,user_code,username,password from teacher where user_code = #{userCode}
     </select>
 
-    <select id="getTeacherByUsername" resultType="com.chengw.tiafs.po.TeacherBean">
+    <select id="getTeacherByUsername" resultType="com.chengw.tiafs.model.po.TeacherBean">
         select * from teacher WHERE username = #{username}
     </select>
 
-    <select id="getAllTeacher" resultType="com.chengw.tiafs.po.TeacherBean">
+    <select id="getAllTeacher" resultType="com.chengw.tiafs.model.po.TeacherBean">
         select * from teacher
     </select>
 

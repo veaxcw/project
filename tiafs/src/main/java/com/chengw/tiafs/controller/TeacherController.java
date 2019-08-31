@@ -1,8 +1,8 @@
 package com.chengw.tiafs.controller;
 
-import com.chengw.tiafs.po.TeacherBean;
+import com.chengw.tiafs.model.po.TeacherBean;
 import com.chengw.tiafs.services.TeacherService;
-import com.chengw.tiafs.vo.LoginEntity;
+import com.chengw.tiafs.model.vo.LoginEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;

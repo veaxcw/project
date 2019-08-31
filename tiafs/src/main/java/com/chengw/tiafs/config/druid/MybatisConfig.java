@@ -1,4 +1,4 @@
-package com.chengw.tiafs.config;
+package com.chengw.tiafs.config.druid;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;

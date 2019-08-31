@@ -1,6 +1,6 @@
-package com.chengw.tiafs.vo;
+package com.chengw.tiafs.model.vo;
 
-import com.chengw.tiafs.po.TeacherBean;
+import com.chengw.tiafs.model.po.TeacherBean;
 import lombok.Data;
 
 /**

@@ -1,4 +1,4 @@
-package com.chengw.tiafs.po;
+package com.chengw.tiafs.model.po;
 
 import lombok.Data;
 

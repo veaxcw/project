@@ -1,6 +1,6 @@
 package com.chengw.tiafs.mapper;
 
-import com.chengw.tiafs.po.TeacherBean;
+import com.chengw.tiafs.model.po.TeacherBean;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;

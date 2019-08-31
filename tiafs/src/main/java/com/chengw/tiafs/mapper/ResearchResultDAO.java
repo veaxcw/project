@@ -1,6 +1,6 @@
 package com.chengw.tiafs.mapper;
-import com.chengw.tiafs.po.Research;
-import com.chengw.tiafs.po.Researchresult;
+import com.chengw.tiafs.model.po.Research;
+import com.chengw.tiafs.model.po.Researchresult;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
