@@ -1,8 +1,12 @@
-package com.chengw.tiafs.util;
+package com.chengw.common.utils;
 
-import com.chengw.tiafs.common.vo.MessageVO;
-import com.chengw.tiafs.common.exception.StatusCode;
 
+import com.chengw.common.enums.StatusCode;
+import com.chengw.common.models.vo.MessageVO;
+
+/**
+ * @author chengw
+ */
 public class RestfulUtil {
 
     public static MessageVO success(Object result){

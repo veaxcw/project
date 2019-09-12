@@ -1,9 +1,10 @@
 package com.chengw.tiafs;
 
-import com.chengw.tiafs.config.cookie.CookieConfigProperties;
-import com.chengw.tiafs.config.cookie.TokenConfigProperties;
-import com.chengw.tiafs.config.security.JwtConfigProperties;
-import com.chengw.tiafs.util.JwtTokenUtil;
+
+import com.chengw.common.config.cookie.CookieConfigProperties;
+import com.chengw.common.config.cookie.TokenConfigProperties;
+import com.chengw.common.config.jwt.JwtConfigProperties;
+import com.chengw.common.utils.JwtTokenUtil;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

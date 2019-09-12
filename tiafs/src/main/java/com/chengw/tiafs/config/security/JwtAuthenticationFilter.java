@@ -1,12 +1,12 @@
 package com.chengw.tiafs.config.security;
 
 import com.alibaba.fastjson.JSON;
-import com.chengw.tiafs.common.vo.CommonResponse;
-import com.chengw.tiafs.common.vo.UserVO;
-import com.chengw.tiafs.config.cookie.CookieConfigProperties;
-import com.chengw.tiafs.config.cookie.TokenConfigProperties;
-import com.chengw.tiafs.util.CookieUtils;
-import com.chengw.tiafs.util.JwtTokenUtil;
+import com.chengw.common.config.cookie.CookieConfigProperties;
+import com.chengw.common.config.cookie.TokenConfigProperties;
+import com.chengw.common.models.vo.CommonResponse;
+import com.chengw.common.models.vo.UserVO;
+import com.chengw.common.utils.CookieUtils;
+import com.chengw.common.utils.JwtTokenUtil;
 import com.google.common.base.Strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
