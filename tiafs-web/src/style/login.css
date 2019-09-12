@@ -6,12 +6,12 @@
 
 @font-face {
     font-family: fzqt;
-    src: url("../../static/font/fzqt.ttf");
+    src: url("font/fzqt.ttf");
 }
 
 @font-face {
     font-family: vani;
-    src: url("../../static/font/Vani.ttf");
+    src: url("font/Vani.ttf");
 }
 
 .loginMain {
@@ -27,7 +27,9 @@
     opacity: .3;
     border-top-left-radius: 30px;
     border-bottom-right-radius: 30px;
+    background: -moz-linear-gradient(left, #F00, #0F0,#00F, #FF0,#0FF, #FF00FF);
     background: -webkit-linear-gradient(left, #F00, #0F0, #00F, #FF0, #0FF, #FF00FF);
+    background: -o-linear-gradient(left,#F00, #0F0, #00F, #FF0, #0FF, #FF00FF);
 }
 
 .row-fluid {
@@ -44,16 +46,9 @@
     background: #FFF;
     border-top-left-radius: 30px;
     border-bottom-right-radius: 30px;
+    background: -moz-linear-gradient(top, #FFF, #CCC);
     background: -webkit-linear-gradient(top, #FFF, #CCC);
-}
-
-.title{
-  padding: 25px 0;
-  color: #0b9cd3;
-  font-family: fzqt;
-  font-size: 30px;
-  font-weight: bolder;
-  line-height: 36px;
+    background: -o-linear-gradient(top, #FFF, #CCC);
 }
 
 #clouds {
@@ -82,46 +77,24 @@
 }
 
 #code {
-    width: 70px;
-    height: 20px;
-    padding: 4px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
-    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
-    -webkit-transition: border linear .2s,box-shadow linear .2s;
-    transition: border linear .2s,box-shadow linear .2s;
-
+    width: 86px;
+    height: 30px;
 }
 
 .btn {
     width: 95px;
 }
 
-#username,#password{
-	width: 150px;	
-	height: 20px;
-  padding: 4px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
-  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
-  -webkit-transition: border linear .2s,box-shadow linear .2s;
-  transition: border linear .2s,box-shadow linear .2s;
+#usercode,#password{
+	width: 150px;
+	height: 30px;
 }
-
 label {
 	font-size: 20px;
 	font-weight: bold;
 	color: black;
 }
 #identity{
-	width: 60px;	
+	width: 60px;
 	height: 30px;
 }

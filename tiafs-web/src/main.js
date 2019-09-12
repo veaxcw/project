@@ -1,18 +1,32 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
-import App from './App'
-import router from './router'
 import ElementUI from 'element-ui'
+import App from './App'
+import routers from './router'
+import https from './configs/https'
+import services from './services/common/index.js'
+import configs from './configs/configs'
+import utils from './configs/utils'
+import VueCookies from 'vue-cookies'
+
+Vue.use(ElementUI)
+Vue.use(VueCookies)
 
 Vue.config.productionTip = false
 
-Vue.use(ElementUI)
+// const router = new routers({
+//   routes: routers
+// })
 
-/* eslint-disable no-new */
+Vue.prototype.$https = https
+Vue.prototype.$services = services
+Vue.prototype.$configs = configs
+Vue.prototype.$utils = utils
+
 new Vue({
   el: '#app',
-  router,
-  components: { App },
+  router: routers,
+  components: {App},
   template: '<App/>'
 })

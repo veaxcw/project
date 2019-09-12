@@ -1,7 +1,7 @@
 package com.chengw.tiafs.config.security.interceptor;
 
 import com.alibaba.fastjson.JSONObject;
-import com.chengw.tiafs.common.UserInfo;
+import com.chengw.tiafs.common.vo.UserVO;
 import com.chengw.tiafs.util.RequestUtil;
 import com.chengw.tiafs.model.vo.LoginEntity;
 import lombok.extern.slf4j.Slf4j;
@@ -61,7 +61,7 @@ public class AuthInterceptor implements HandlerInterceptor {
                 JSONObject serviceResponse = jsonObject.getJSONObject("serviceResponse");
                 if(serviceResponse != null && serviceResponse.containsKey("authenticationSuccess")){
                     JSONObject authenticationSuccess = serviceResponse.getJSONObject("authenticationSuccess");
-                    UserInfo userInfo = JSONObject.toJavaObject(authenticationSuccess, UserInfo.class);
+                    UserVO userInfo = JSONObject.toJavaObject(authenticationSuccess, UserVO.class);
                     session.setAttribute("user",userInfo);
                     return true;
                 }

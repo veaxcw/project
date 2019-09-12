@@ -28,18 +28,22 @@ public class CommonUtils {
     /**首先解决使用设置表单属性enctype="multipart/form-data"之后传值问题**/
     @SuppressWarnings("Duplicates")
     public static Map<String,String> saveForm(HttpServletRequest request, String leafPath){
-        Map<String,String> info = new HashMap<String, String>();//用来存储form表单中的数据
+        //用来存储form表单中的数据
+        Map<String,String> info = new HashMap<String, String>();
 
         DiskFileItemFactory diskFileItemFactory = new DiskFileItemFactory();
-
-        diskFileItemFactory.setRepository(new File(System.getProperty("java.io.tmpdir")));//设置临时文件目录
-        diskFileItemFactory.setSizeThreshold(CommonUtils.MEMORY_THRESHOLD);//设置临界内存值
+        //设置临时文件目录
+        diskFileItemFactory.setRepository(new File(System.getProperty("java.io.tmpdir")));
+        //设置临界内存值
+        diskFileItemFactory.setSizeThreshold(CommonUtils.MEMORY_THRESHOLD);
         ServletFileUpload upload = new ServletFileUpload(diskFileItemFactory);
-        upload.setSizeMax(CommonUtils.MAX_REQUEST_SIZE);//设置最大文件上传值
-        upload.setFileSizeMax(CommonUtils.MAX_FILE_SIZE);//设置最大请求值
+        //设置最大文件上传值
+        upload.setSizeMax(CommonUtils.MAX_REQUEST_SIZE);
+        //设置最大请求值
+        upload.setFileSizeMax(CommonUtils.MAX_FILE_SIZE);
         upload.setHeaderEncoding("utf-8");
-
-        String uploadPath = CommonUtils.filePath + leafPath;//设置文件目录
+        //设置文件目录
+        String uploadPath = CommonUtils.filePath + leafPath;
         File uploadDir = new File(uploadPath);
         if(!uploadDir.exists()) {
             uploadDir.mkdirs();
@@ -48,9 +52,11 @@ public class CommonUtils {
         try {
             List<FileItem> fileItems = upload.parseRequest(request);
             for(FileItem fileItem:fileItems){
-                if(fileItem.isFormField()){//判断表单是普通类型还是文件类型
+                //判断表单是普通类型还是文件类型
+                if(fileItem.isFormField()){
                     info.put(fileItem.getFieldName(),fileItem.getString("UTF-8"));
-                }else{//文件类型则读取文件
+                }else{
+                    //文件类型则读取文件
                     try {
                         String fileName = new File(fileItem.getName()).getName();
                         String filePath = uploadPath + File.separator + fileName;

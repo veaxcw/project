@@ -2,6 +2,13 @@ server:
   port: 8666
   servlet:
     context-path: /tiafs/
+    session:
+      cookie:
+        name: JSESSIONID
+        max-age: 86400 #24h
+        path: / #所有路径都携带cookie至服务器
+        http-only: false #设置为true 则cookie将不能被JS读取
+#        secure: true #cookie仅允许用https传输
 
 spring:
   application:
@@ -16,7 +23,7 @@ spring:
   redis:
     host: localhost
     port: 6379
-    password: xveacw8023
+    #password: xveacw8023
     jedis:
       pool:
         max-active: 200
@@ -36,3 +43,14 @@ spring:
 
 mybatis:
   mapper-locations: classpath*:mapper/*.xml
+
+jwt:
+  encrypt-secret: 4A614E645267556B58703273357638792F423F45284-2D4A6Z-6A586E32723-2B4D6-472D4BCD #秘钥
+  timestamp-key: tempstamp #时间戳
+  location: cookie #cookie
+  max-age: 86400 #过期时间 24h
+
+token:
+  cookie-name: token
+  header-name: Authorization
+  parameter-name: token
