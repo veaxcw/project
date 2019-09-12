@@ -1,9 +1,9 @@
 
-package com.chengw.mineClearance.frame;
+package com.chengw.mineclearance.frame;
 
-import com.chengw.mineClearance.gui.JMenuBomb;
-import com.chengw.mineClearance.gui.JPanelBomb;
-import com.chengw.mineClearance.laymine.EssentialInfo;
+import com.chengw.mineclearance.gui.JMenuBomb;
+import com.chengw.mineclearance.gui.JPanelBomb;
+import com.chengw.mineclearance.laymine.EssentialInfo;
 
 import javax.swing.JFrame;
 
@@ -17,7 +17,7 @@ public class Frame extends JFrame{
 
 	private static final long serialVersionUID = 1L;
 	private JMenuBomb menuBar = new JMenuBomb(this);
-	private JPanelBomb bombpanel = new JPanelBomb(this);
+	private JPanelBomb bombPanel = new JPanelBomb(this);
 	public Frame() {
 		init();
 		this.setIconImage(EssentialInfo.imageIcon.getImage());
@@ -29,16 +29,16 @@ public class Frame extends JFrame{
 	}
 	private void init() {
 		this.setJMenuBar(menuBar);
-		this.add(bombpanel);
+		this.add(bombPanel);
 	}
 	public void restartGame() {
-		this.remove(bombpanel);
+		this.remove(bombPanel);
 		EssentialInfo.bombCount = EssentialInfo.allcount;
 		EssentialInfo.isStart = false;
 		this.remove(menuBar);
 		this.setVisible(false);
-		bombpanel = new JPanelBomb(this);
-		this.add(bombpanel);
+		bombPanel = new JPanelBomb(this);
+		this.add(bombPanel);
 		new Frame();
 	}
 	

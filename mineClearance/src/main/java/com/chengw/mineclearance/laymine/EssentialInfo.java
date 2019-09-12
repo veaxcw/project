@@ -1,16 +1,17 @@
 
-package com.chengw.mineClearance.laymine;
+package com.chengw.mineclearance.laymine;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import java.nio.file.Path;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author chengw
  */
-public class EssentialInfo {
+public class  EssentialInfo {
 
-    private static final String PATH = "F:\\chengw\\project\\Project\\mineClearance\\src\\main\\java\\com\\chengw\\mineClearance\\image";
+    private static final String PATH = "image";
 
     public static ImageIcon imageIcon = new ImageIcon(PATH + "/icon.gif");
     public static Icon icon = new ImageIcon(PATH +"/001.png");
@@ -38,10 +39,14 @@ public class EssentialInfo {
 	
 	public static Icon[] num = new Icon[9];
 	public static Icon[] time = new Icon[10];
+
+	public static Map<Integer,ImageIcon> NUMS = new HashMap<>(8);
+
+
 	
 	static {
 		for(int i = 0; i < num.length;i++) {
-			num[i] = new ImageIcon(PATH + i + ".png");
+		    NUMS.put(i+ 1,new ImageIcon(PATH + "/"+ (i + 1) + ".png"));
 		}
 		for(int j = 0; j < time.length; j++) {
 			time[j] = new ImageIcon(PATH + j + ".gif");

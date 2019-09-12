@@ -1,7 +1,7 @@
 
-package com.chengw.mineClearance.laymine;
+package com.chengw.mineclearance.laymine;
 
-import com.chengw.mineClearance.dao.Mine;
+import com.chengw.mineclearance.model.Mine;
 
 import java.util.Random;
 

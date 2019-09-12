@@ -1,8 +1,8 @@
 
-package com.chengw.mineClearance.gui;
+package com.chengw.mineclearance.gui;
 
-import com.chengw.mineClearance.frame.Frame;
-import com.chengw.mineClearance.laymine.EssentialInfo;
+import com.chengw.mineclearance.frame.Frame;
+import com.chengw.mineclearance.laymine.EssentialInfo;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;

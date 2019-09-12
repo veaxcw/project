@@ -1,11 +1,11 @@
 
-package com.chengw.mineClearance.gui;
+package com.chengw.mineclearance.gui;
 
-import com.chengw.mineClearance.dao.Mine;
-import com.chengw.mineClearance.frame.Frame;
-import com.chengw.mineClearance.laymine.EssentialInfo;
-import com.chengw.mineClearance.laymine.Laymine;
-import com.chengw.mineClearance.listener.MyListener;
+import com.chengw.mineclearance.model.Mine;
+import com.chengw.mineclearance.frame.Frame;
+import com.chengw.mineclearance.laymine.EssentialInfo;
+import com.chengw.mineclearance.laymine.Laymine;
+import com.chengw.mineclearance.listener.MyListener;
 
 import java.awt.Color;
 import java.awt.GridLayout;
@@ -58,9 +58,9 @@ public class JPanelBomb extends JPanel {
 	public static void WinPanel() {
 		JFrame win = new JFrame();
 		win.setSize(100, 100);
-		win.setTitle("���");
+		win.setTitle("winner!!!");
 		JPanel jp = new JPanel();
-		jp.add(new JLabel("��ϲͨ��"));
+		jp.add(new JLabel("u r winner"));
 		win.setResizable(false);
 		win.add(jp);
 		win.setVisible(true);
@@ -69,9 +69,9 @@ public class JPanelBomb extends JPanel {
 	public static void LosePanel() {
 		JFrame lose = new JFrame();
 		lose.setSize(100, 100);
-		lose.setTitle("���");
+		lose.setTitle("loser");
 		JPanel jp = new JPanel();
-		jp.add(new JLabel("��Ϸʧ��"));
+		jp.add(new JLabel("u lose !!!"));
 		lose.add(jp);
 		lose.setResizable(false);
 		lose.setVisible(true);
