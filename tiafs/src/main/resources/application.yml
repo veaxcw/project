@@ -17,11 +17,12 @@ spring:
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/cw_tiafs?serverTimezone=Asia/Shanghai&allowMultiQueries=true
+#    url: jdbc:mysql://localhost:3306/cw_tiafs?serverTimezone=Asia/Shanghai&allowMultiQueries=true
+     url: jdbc:mysql://47.93.19.130:3306/cw_tiafs?serverTimezone=Asia/Shanghai&allowMultiQueries=true
     username: root
     password: root
   redis:
-    host: localhost
+    host: 47.93.19.130
     port: 6379
     #password: xveacw8023
     jedis:
