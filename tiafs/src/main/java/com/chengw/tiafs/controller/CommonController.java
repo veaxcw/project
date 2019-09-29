@@ -1,7 +1,8 @@
 package com.chengw.tiafs.controller;
 
 
-import com.chengw.tiafs.config.cookie.CookieConfigProperties;
+import com.chengw.common.config.cookie.CookieConfigProperties;
+import com.chengw.common.utils.CookieUtils;
 import com.chengw.tiafs.util.RequestUtil;
 import com.chengw.tiafs.util.VerifyCodeUtil;
 import com.google.common.base.Strings;

@@ -1,7 +1,7 @@
 package com.chengw.tiafs.config.security.interceptor;
 
 import com.alibaba.fastjson.JSONObject;
-import com.chengw.tiafs.common.vo.UserVO;
+import com.chengw.common.models.vo.UserVO;
 import com.chengw.tiafs.util.RequestUtil;
 import com.chengw.tiafs.model.vo.LoginEntity;
 import lombok.extern.slf4j.Slf4j;
